@@ -1,7 +1,7 @@
 #content {
 	width: 700px;
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #navi, #controls, #song-info {
@@ -16,8 +16,8 @@
 	background-color: #4DD7FA;
 	width: 130px;
 	margin-top: 20px;
-  	margin-right: 20px;
-  	padding: 10px;
+  margin-right: 20px;
+  padding: 10px;
 	float: left;
 }
 
@@ -33,7 +33,6 @@
 	color: #785616;
 }
 
-
 #navi {
   height: 50px;
 }
@@ -45,7 +44,7 @@
   padding: 0 2px 0 2px;
 }
 
-#middle {
+.middle {
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
