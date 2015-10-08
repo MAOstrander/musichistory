@@ -54,6 +54,13 @@
   border-right: 2px solid black;
 }
 
-label {
+/* Form styling */
+label, select {
 	display: block;
+  margin-bottom: 2px;
+  width: 100%;
+}
+input[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
 }
