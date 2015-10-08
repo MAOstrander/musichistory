@@ -10,6 +10,7 @@
 
 #navi {
 	background-color: #FFB4B0;
+  padding-left: 20px;
 }
 
 #controls {
@@ -26,22 +27,22 @@
 	width: 472px;
 	margin-top: 20px;
 	float: left;
-  padding-left: 50px;
+  padding-left: 20px;
 }
+
+/* Info content styling */
 
 .info h2 {
 	color: #785616;
 }
 
-#navi {
-  height: 50px;
+ul {
+  padding-left: 0px;
 }
 
-#navi > ul > li {
-  float: left;
-  list-style-type: none;
-  margin: 2px 0 0 0;
-  padding: 0 2px 0 2px;
+li {
+  display: inline;
+  padding: 0 3px 0 3px;
 }
 
 .middle {
@@ -64,9 +65,4 @@ input[type="submit"] {
 a:visited {
   text-decoration: none;
   color: black;
-}
-
-/* Float malarky */
-.cleared {
-	clear: both;
 }
