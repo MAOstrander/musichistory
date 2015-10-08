@@ -8,12 +8,23 @@ header {
 
 #controls {
 	background-color: #4DD7FA;
+	width: 25%;
+	margin-top: 5%;
+	float: left;
 }
 
 #song-info {
 	background-color: #FEFAC0;
+	width: 70%;
+	margin-top: 5%;
+	float: right;
 }
 
 .info h2 {
 	color: #785616;
+}
+
+/* Float malarky */
+.cleared {
+	clear: both;
 }
