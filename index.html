@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Super Title Goes Here</title>
+  <title>Music History Assignment</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -11,16 +11,75 @@
 
 <body>
   <header>   
-    <nav>
+    <nav id="navi">
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="#">View Music</a></li>
+        <li><a href="#">Add Music</a></li>
+        <li><a href="#">Profile</a></li>
       </ul>
     </nav>
   </header>
+  <div id="controls">
+    <form action="music.html" method="post">
 
+      <label>Song Length:
+        <input id="song-length" type="range" name="song-length">
+      </label>
+
+      <label for="artist">Artist:
+        <select id="artist" name="artist">
+          <option>Artist 1</option>
+          <option>Artist 2</option>
+          <option>Artist 3</option>
+          <option>Artist 4</option>
+        </select>
+      </label>
+
+      <label for="album">Album:
+        <select id="album" name="album">
+          <option>Album 1</option>
+          <option>Album 2</option>
+          <option>Album 3</option>
+          <option>Album 4</option>
+        </select>
+      </label>
+
+
+      <p>Genre:</p>
+      <label><input type="checkbox" name="genre" value="rock">Rock</label>
+      <label><input type="checkbox" name="genre" value="pop">Pop</label>
+      <label><input type="checkbox" name="genre" value="blues">Blues</label>
+      <label><input type="checkbox" name="genre" value="classical">Classical</label>
+      <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
+      <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+
+      <input type="submit" value="Filter"></input>
+    </form>
+  </div>
   
+
+  <div id="song-info">
+
+    <div class="info">
+      <h2>Song Name</h2>
+      <p>Artist name | Album name | Genre</p>
+    </div>
+
+    <div class="info">
+      <h2>Song Name</h2>
+      <p>Artist name | Album name | Genre</p>
+    </div>
+
+    <div class="info">
+      <h2>Song Name</h2>
+      <p>Artist name | Album name | Genre</p>
+    </div>
+    
+    <div class="info">
+      <h2>Song Name</h2>
+      <p>Artist name | Album name | Genre</p>
+    </div>
+  </div>  
 
   <footer>
     This page created by Mathew Ostrander
