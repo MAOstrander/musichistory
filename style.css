@@ -14,7 +14,7 @@
 
 #controls {
 	background-color: #4DD7FA;
-	width: 180px;
+	width: 130px;
 	margin-top: 20px;
   	margin-right: 20px;
   	padding: 10px;
@@ -23,9 +23,10 @@
 
 #song-info {
 	background-color: #FEFAC0;
-	width: 400px;
+	width: 472px;
 	margin-top: 20px;
 	float: left;
+  padding-left: 50px;
 }
 
 .info h2 {
