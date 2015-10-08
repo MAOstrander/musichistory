@@ -1,23 +1,29 @@
-header, #controls, #song-info {
+#content {
+	width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#navi, #controls, #song-info {
 	border: 2px solid black;
 }
 
-header {
+#navi {
 	background-color: #FFB4B0;
 }
 
 #controls {
 	background-color: #4DD7FA;
-	width: 200px;
+	width: 180px;
 	margin-top: 20px;
-  margin-right: 20px;
-  padding: 10px;
+  	margin-right: 20px;
+  	padding: 10px;
 	float: left;
 }
 
 #song-info {
 	background-color: #FEFAC0;
-	width: 70%;
+	width: 400px;
 	margin-top: 20px;
 	float: left;
 }
@@ -38,11 +44,15 @@ header {
 #navi > ul > li {
   float: left;
   list-style-type: none;
-  margin: 8px 0 0 0;
+  margin: 2px 0 0 0;
   padding: 0 2px 0 2px;
 }
 
 #middle {
   border-left: 2px solid black;
   border-right: 2px solid black;
+}
+
+label {
+	display: block;
 }
