@@ -1,0 +1,19 @@
+header, #controls, #song-info {
+	border: 2px solid black;
+}
+
+header {
+	background-color: #FFB4B0;
+}
+
+#controls {
+	background-color: #4DD7FA;
+}
+
+#song-info {
+	background-color: #FEFAC0;
+}
+
+.info h2 {
+	color: #785616;
+}
