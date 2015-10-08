@@ -8,16 +8,18 @@ header {
 
 #controls {
 	background-color: #4DD7FA;
-	width: 25%;
-	margin-top: 5%;
+	width: 200px;
+	margin-top: 20px;
+  margin-right: 20px;
+  padding: 10px;
 	float: left;
 }
 
 #song-info {
 	background-color: #FEFAC0;
 	width: 70%;
-	margin-top: 5%;
-	float: right;
+	margin-top: 20px;
+	float: left;
 }
 
 .info h2 {
@@ -27,4 +29,20 @@ header {
 /* Float malarky */
 .cleared {
 	clear: both;
+}
+
+#navi {
+  height: 50px;
+}
+
+#navi > ul > li {
+  float: left;
+  list-style-type: none;
+  margin: 8px 0 0 0;
+  padding: 0 2px 0 2px;
+}
+
+#middle {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
