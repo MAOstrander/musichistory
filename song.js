@@ -21,9 +21,7 @@ for (var i = 0; i < songs.length; i++) {
 	var artistName = song.slice(song.indexOf("by")+3, song.indexOf("on the album"));
 	var albumName = song.slice(song.indexOf("album")+6);
 
-	outputSongs[i] = "<div class='song'><h2>" + songName + 
-		"</h2><ul><li>" + artistName + 
-		"</li><li class='middle'>" + albumName + "</li><li>Pop</li></ul></div>";
+	outputSongs[i] = "<div class='song'><h2>" + songName + "</h2><ul><li>" + artistName + "</li><li class='middle'>" + albumName + "</li><li>Pop</li></ul></div>";
 }
 
 for (var j = 0; j < outputSongs.length; j++) {
