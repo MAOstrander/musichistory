@@ -2,12 +2,14 @@
   display: flex;
   -webkit-flex-direction: row;
   -webkit-flex-wrap: wrap;
-  box-sizing: border-box;
 }
 .content {
   width: 700px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.fixed-space {
   padding-top: 50px;
 }
 
@@ -35,7 +37,6 @@
 #song-info {
   background-color: #FEFAC0;
   flex: 3 75%;
-  box-sizing: border-box;
 }
 
 #song-info div:nth-of-type(2n+1) {
@@ -50,7 +51,11 @@
 } 
 
 #song-info div:first-of-type {
-  font-weight: bold;
+  font-weight: bolder;
+}
+
+#song-info div:last-of-type {
+  height: 100px;
 }
 
 /* Song content styling */
