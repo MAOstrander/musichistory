@@ -78,3 +78,7 @@ a:visited {
 #col-2 {
   float: right;
 }
+
+.flexparent {
+  display: flex;
+}
