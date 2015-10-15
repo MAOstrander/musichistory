@@ -65,6 +65,11 @@ body {
   font-weight: bolder;
 }
 
+#song-info div:first-of-type > h2 {
+  color: black;
+  font-size: 1.6em;
+}
+
 /* Song content styling */
 .song h2 {
 	color: #785616;
@@ -72,7 +77,7 @@ body {
 
 .song {
   padding-left: 40px;
-  border: 2px solid black;
+  border-top: 2px solid black;
   box-sizing: border-box;
 }
 
