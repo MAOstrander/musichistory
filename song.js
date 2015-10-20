@@ -1,5 +1,12 @@
 var songs = [];
 var outputSongs = [];
+var songInfo = document.getElementById("song-info");
+var songInput = document.getElementById("song-input");
+var buttonAdd = document.getElementById("button-add");
+
+var songAdd = document.getElementsByName("song-add");
+var artistAdd = document.getElementsByName("artist-add");
+var albumAdd = document.getElementsByName("album-add");
 
 songs[songs.length] = "Rise - by Yoko Kanno on the album Ghost in the Shell OST";
 songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
@@ -25,5 +32,41 @@ for (var i = 0; i < songs.length; i++) {
 }
 
 for (var j = 0; j < outputSongs.length; j++) {
-	document.getElementById("song-info").innerHTML += outputSongs[j];
+	songInfo.innerHTML += outputSongs[j];
 }
+
+
+// Listening for clicks
+document.querySelector("body").addEventListener("click", function(event) {
+	console.log("Event:", event);
+  // Handle the click event on my nav li
+  if (event.target.id === "list") {
+	console.log("That's the list!");
+	songInput.classList.add("display-hide");
+	songInfo.classList.remove("display-hide");
+	console.log("SongInfo classList", songInfo.classList);
+	}	else if (event.target.id === "add") {
+	console.log("That's the add!");
+	songInfo.classList.add("display-hide");
+	songInput.classList.remove("display-hide");
+	console.log("SongInput classList", songInput.classList);
+	}
+});
+
+function update() {
+	songName = songAdd[0].value;
+	artistName = artistAdd[0].value;
+	albumName = albumAdd[0].value;
+	outputSongs.push("<div class='song'><h2>" + songName + "</h2><ul><li>" + artistName + "</li><li class='middle'>" + albumName + "</li><li>Pop</li></ul></div>");
+
+	songInfo.innerHTML = "";
+	for (var j = 0; j < outputSongs.length; j++) {
+	songInfo.innerHTML += outputSongs[j];
+	//Switch back to music list window
+	songInput.classList.add("display-hide");
+	songInfo.classList.remove("display-hide");
+	}
+
+}
+
+buttonAdd.addEventListener("click", update);

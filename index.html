@@ -10,21 +10,21 @@
 
 <body> 
   
+    <div id="content">
     <!-- Navigation Header at Top-->
     <div id="navi">
       <nav>
         <ul>
-          <li><a href="#">View Music</a></li>
-          <li class="middle"><a href="#">Add Music</a></li>
-          <li><a href="#">Profile</a></li>
+          <li id="list">List Music</li>
+          <li class="middle" id="add">Add Music</li>
+          <li>Profile</li>
         </ul>
       </nav>
     </div>
 
+
     <!-- Control Bar on Left Side-->
     <div id="controls">
-      <form action="music.html" method="post">
-
         <label>Song Length:
           <input id="song-length" type="range" name="song-length">
         </label>
@@ -62,16 +62,29 @@
           <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
         </div>
         <input type="submit" value="Filter"></input>
-      </form>
     </div>
     
+
+    <!-- Song Input for Add Music -->
+    <div id="song-input" class="display-hide">
+      <label>
+        <input type="text" name="song-add" autofocus> Name of Song
+      </label>
+      <label>
+        <input type="text" name="artist-add"> Artist
+      </label>
+      <label>
+        <input type="text" name="album-add"> Album
+      </label>
+
+      <button id="button-add">Add</button>  
+    </div>
 
     <!-- Body into which the JavaScript inserts songs-->
     <div id="song-info">
     </div>
 
   </div>
-
 
   <!-- <footer class="cleared">
     This page created by Mathew Ostrander
