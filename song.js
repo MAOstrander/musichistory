@@ -54,14 +54,14 @@ for (var j = 0; j < outputSongs.length; j++) {
 document.querySelector("body").addEventListener("click", function(event) {
 	console.log("Event:", event);
   // Handle the click event on my nav li
-  if (event.target.id === "list") {
-	songInput.classList.add("display-hide");
-	songInfo.classList.remove("display-hide");
-	controls.classList.remove("display-hide");
-	}	else if (event.target.id === "add") {
-	songInfo.classList.add("display-hide");
-	controls.classList.add("display-hide");
-	songInput.classList.remove("display-hide");
+ 	if (event.target.id === "list") {
+		songInput.classList.add("display-hide");
+		songInfo.classList.remove("display-hide");
+		controls.classList.remove("display-hide");
+	} else if (event.target.id === "add") {
+		songInfo.classList.add("display-hide");
+		controls.classList.add("display-hide");
+		songInput.classList.remove("display-hide");
 	}
 });
 
@@ -80,8 +80,8 @@ function update() {
 
 	songInfo.innerHTML = "";
 	for (var j = 0; j < outputSongs.length; j++) {
-	songInfo.innerHTML += outputSongs[j];
-	console.log("Playlist", playlist[j]);
+		songInfo.innerHTML += outputSongs[j];
+		console.log("Playlist", playlist[j]);
 	}
 	//Switch back to music list window
 	songInput.classList.add("display-hide");

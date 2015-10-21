@@ -76,8 +76,8 @@ li {
 }
 
 .middle {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
 }
 
 
