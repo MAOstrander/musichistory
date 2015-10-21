@@ -81,8 +81,9 @@ function update() {
 	songInfo.innerHTML = "";
 	for (var j = 0; j < outputSongs.length; j++) {
 	songInfo.innerHTML += outputSongs[j];
-	//Switch back to music list window
+	console.log("Playlist", playlist[j]);
 	}
+	//Switch back to music list window
 	songInput.classList.add("display-hide");
 	songInfo.classList.remove("display-hide");
 	controls.classList.remove("display-hide");
