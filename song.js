@@ -1,5 +1,6 @@
 var songs = [];
 var outputSongs = [];
+var playlist = []; // This will hold all my songs as objects
 var songInfo = document.getElementById("song-info");
 var songInput = document.getElementById("song-input");
 var controls = document.getElementById("controls");
@@ -25,18 +26,25 @@ function filterSong(song) {
 	return song;
 }
 
+//hard-coded song population
 for (var i = 0; i < songs.length; i++) {
-	song = songs[i];
-
-	song = filterSong(song);
+	song = filterSong(songs[i]);
 
 	var songName = song.slice(0, song.indexOf("-")-1);
 	var artistName = song.slice(song.indexOf("by")+3, song.indexOf("on the album"));
 	var albumName = song.slice(song.indexOf("album")+6);
 
-	outputSongs[i] = "<div class='song'><h2>" + songName + "</h2><ul><li>" + artistName + "</li><li class='middle'>" + albumName + "</li><li>Pop</li></ul></div>";
+
+	playlist[i] = {};
+	playlist[i].title = songName;
+	playlist[i].artist = artistName;
+	playlist[i].album = albumName;
+	playlist[i].genre = "pop";
+	outputSongs[i] = "<div class='song'><h2>" + playlist[i].title + "</h2><ul><li>" + playlist[i].artist; 
+	outputSongs[i] += "</li><li class='middle'>" + playlist[i].album + "</li><li>" + playlist[i].genre+ "</li></ul></div>";
 }
 
+//displaying songs in #song-info
 for (var j = 0; j < outputSongs.length; j++) {
 	songInfo.innerHTML += outputSongs[j];
 }
@@ -58,11 +66,16 @@ document.querySelector("body").addEventListener("click", function(event) {
 });
 
 function update() {
-	songName = filterSong(songAdd[0].value);
-	artistName = filterSong(artistAdd[0].value);
-	albumName = filterSong(albumAdd[0].value);
-	genreName = filterSong(genreAdd[0].value);
-	output = "<div class='song'><h2>" + songName + "</h2><ul><li>" + artistName + "</li><li class='middle'>" + albumName + "</li><li>" + genreName + "</li></ul></div>"
+	var index = playlist.length;
+	playlist[index] = {};
+	playlist[index].title = filterSong(songAdd[0].value);
+	playlist[index].artist = filterSong(artistAdd[0].value);
+	playlist[index].album = filterSong(albumAdd[0].value);
+	playlist[index].genre = filterSong(genreAdd[0].value);
+	
+	output = "<div class='song'><h2>" + playlist[index].title + "</h2><ul><li>" + playlist[index].artist; 
+	output += "</li><li class='middle'>" + playlist[index].album + "</li><li>" + playlist[index].genre+ "</li></ul></div>";
+
 	outputSongs.unshift(output);
 
 	songInfo.innerHTML = "";
