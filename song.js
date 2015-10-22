@@ -1,15 +1,13 @@
+$(document).ready(function() { 
+
 var songs = [];
 var outputSongs = [];
 var playlist = []; // This will hold all my songs as objects
-var songInfo = document.getElementById("song-info");
-var songInput = document.getElementById("song-input");
-var controls = document.getElementById("controls");
-var buttonAdd = document.getElementById("button-add");
 
-var songAdd = document.getElementsByName("song-add");
-var artistAdd = document.getElementsByName("artist-add");
-var albumAdd = document.getElementsByName("album-add");
-var genreAdd = document.getElementsByName("genre-add");
+var songInfo = $("#song-info");
+var songInput = $("#song-input");
+var controls = $("#controls");
+var buttonAdd = $("#button-add");
 
 songs[songs.length] = "Rise - by Yoko Kanno on the album Ghost in the Shell OST";
 songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
@@ -22,7 +20,6 @@ songs[songs.length] = "Dare - by Gorillaz on the album Demon Days";
 function filterSong(song) {
 	song = song.replace(">", "-");
 	song = song.replace(/[&\/\\#,+()!@$~%.*?{}]/g, '');
-	console.log(song)
 	return song;
 }
 
@@ -34,7 +31,6 @@ for (var i = 0; i < songs.length; i++) {
 	var artistName = song.slice(song.indexOf("by")+3, song.indexOf("on the album"));
 	var albumName = song.slice(song.indexOf("album")+6);
 
-
 	playlist[i] = {};
 	playlist[i].title = songName;
 	playlist[i].artist = artistName;
@@ -44,49 +40,67 @@ for (var i = 0; i < songs.length; i++) {
 	outputSongs[i] += "</li><li class='middle'>" + playlist[i].album + "</li><li>" + playlist[i].genre+ "</li></ul></div>";
 }
 
-//displaying songs in #song-info
-for (var j = 0; j < outputSongs.length; j++) {
-	songInfo.innerHTML += outputSongs[j];
-}
-
+//In 'song-info' this outputs the entire outputSongs array into the innerHTML
+	$("#song-info").html(outputSongs);
 
 // Listening for clicks
-document.querySelector("body").addEventListener("click", function(event) {
-	console.log("Event:", event);
+$("body").click( function(event) {
+	// console.log("Event:", event);
   // Handle the click event on my nav li
  	if (event.target.id === "list") {
-		songInput.classList.add("display-hide");
-		songInfo.classList.remove("display-hide");
-		controls.classList.remove("display-hide");
+		songInfo.show();
+		controls.show();
+		songInput.hide();
 	} else if (event.target.id === "add") {
-		songInfo.classList.add("display-hide");
-		controls.classList.add("display-hide");
-		songInput.classList.remove("display-hide");
+		songInput.show();
+		songInfo.hide();
+		controls.hide();
 	}
 });
 
 function update() {
 	var index = playlist.length;
 	playlist[index] = {};
-	playlist[index].title = filterSong(songAdd[0].value);
-	playlist[index].artist = filterSong(artistAdd[0].value);
-	playlist[index].album = filterSong(albumAdd[0].value);
-	playlist[index].genre = filterSong(genreAdd[0].value);
-	
+	playlist[index].title = filterSong($("[name='song-add']").val() );
+	playlist[index].artist = filterSong($("[name='artist-add']").val() );
+	playlist[index].album = filterSong($("[name='album-add']").val() );
+	playlist[index].genre = filterSong($("[name='genre-add']").val() );
+
 	output = "<div class='song'><h2>" + playlist[index].title + "</h2><ul><li>" + playlist[index].artist; 
 	output += "</li><li class='middle'>" + playlist[index].album + "</li><li>" + playlist[index].genre+ "</li></ul></div>";
 
 	outputSongs.unshift(output);
 
-	songInfo.innerHTML = "";
-	for (var j = 0; j < outputSongs.length; j++) {
-		songInfo.innerHTML += outputSongs[j];
-		console.log("Playlist", playlist[j]);
-	}
-	//Switch back to music list window
-	songInput.classList.add("display-hide");
-	songInfo.classList.remove("display-hide");
-	controls.classList.remove("display-hide");
-}
+	$("#song-info").html(outputSongs);
 
-buttonAdd.addEventListener("click", update);
+	$("[name='song-add']").val("");
+	$("[name='artist-add']").val("");
+	$("[name='album-add']").val("");
+	$("[name='genre-add']").val("");
+
+	//Switch back to music list window
+	buttonAdd.attr("disabled", "true");
+	songInfo.show();
+	controls.show();
+	songInput.hide();
+	}
+
+buttonAdd.attr("disabled", "true");
+
+var fieldInput = $(":text");
+function validate(){
+	if (fieldInput.eq(0).val() !== "" && 
+		fieldInput.eq(1).val() !== "" && 
+		fieldInput.eq(2).val() !== "" && 
+		fieldInput.eq(3).val() !== "") {
+		buttonAdd.removeAttr("disabled");
+	} else {
+		buttonAdd.attr("disabled", "true");
+	}
+}
+fieldInput.keyup(validate);
+
+buttonAdd.click(update);
+
+}); //End of JQuery function
+
