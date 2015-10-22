@@ -36,8 +36,11 @@ for (var i = 0; i < songs.length; i++) {
 	playlist[i].artist = artistName;
 	playlist[i].album = albumName;
 	playlist[i].genre = "pop";
-	outputSongs[i] = "<div class='song'><h2>" + playlist[i].title + "</h2><ul><li>" + playlist[i].artist; 
-	outputSongs[i] += "</li><li class='middle'>" + playlist[i].album + "</li><li>" + playlist[i].genre+ "</li></ul></div>";
+	outputSongs[i] = "<div class='song'><h2>" + playlist[i].title + 
+					"</h2><ul><li>" + playlist[i].artist; + 
+					"</li><li class='middle'>" + playlist[i].album + 
+					"</li><li>" + playlist[i].genre + 
+					"</li></ul></div>";
 }
 
 //In 'song-info' this outputs the entire outputSongs array into the innerHTML
@@ -66,8 +69,11 @@ function update() {
 	playlist[index].album = filterSong($("[name='album-add']").val() );
 	playlist[index].genre = filterSong($("[name='genre-add']").val() );
 
-	output = "<div class='song'><h2>" + playlist[index].title + "</h2><ul><li>" + playlist[index].artist; 
-	output += "</li><li class='middle'>" + playlist[index].album + "</li><li>" + playlist[index].genre+ "</li></ul></div>";
+	output = "<div class='song'><h2>" + playlist[index].title + 
+			"</h2><ul><li>" + playlist[index].artist; + 
+			"</li><li class='middle'>" + playlist[index].album + 
+			"</li><li>" + playlist[index].genre + 
+			"</li></ul></div>";
 
 	outputSongs.unshift(output);
 
