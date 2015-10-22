@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 var songs = [];
 var outputSongs = [];
 var songInfo = document.getElementById("song-info");
@@ -70,3 +72,6 @@ function update() {
 }
 
 buttonAdd.addEventListener("click", update);
+
+
+}); //end of JQuery Tags
