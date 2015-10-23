@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Music History Assignment Version 4</title>
+  <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  <title>Music History Assignment Version 5</title>
   <link rel="stylesheet" type="text/css" href="style3.css">
 </head>
 
@@ -31,13 +32,13 @@
 
         <label for="artist">Artist:
           <select id="artist" name="artist">
-            <option></option>
+            <option class='filter-artist'></option>
           </select>
         </label>
 
         <label for="album">Album:
           <select id="album" name="album">
-            <option></option>
+            <option class='filter-album'></option>
           </select>
         </label>
 
@@ -84,6 +85,7 @@
     This page created by Mathew Ostrander
   </footer> -->
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
   <script type="text/javascript" src="song.js"></script>
 </body>
 </html>

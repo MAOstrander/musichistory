@@ -1,59 +1,97 @@
 $(document).ready(function() { 
 
+// var mySongs = new Firebase("https://mistory.firebaseio.com/");
 
-// $.ajax({
-//     url: "data/songs.json"
-// }).done(executeMe);
+// To write a song to firebase
+// myFirebaseRef.set({
+//   title: "One Winged Angel",
+//   artist: "Nobuo Uematsu",
+//   album: "Final Fantasy 7",
+//   genre: "Classic"
+// });
 
+// // This takes a 'snapshot' of the database at the time you call it and allows you to traverse to any 
+// // particular value like an object.
+// mySongs.child("playlist").child("songs").child("title").on("value", function(snapshot) {
+//   console.log(snapshot.val());  // Alerts "Final Fantasy 7"
+// });
+
+function filterThis (filterMe) {
+	var yarp = [];
+	for (var l = 0; l < filterMe.length; l++) {
+		yarp[l] = filterMe.eq(l).val();
+	}
+		yarp = _.uniq(yarp);
+	console.log("filterMe after:", yarp);
+	$("#artist").html("");
+	for (var i = 0; i < yarp.length; i++) {
+		console.log("yarp", yarp[i]);
+		$("#artist").append("<option class='filter-artist'>" + yarp[i] + "</option>");
+	}
+}
+
+
+function executeMe(playlist){
+	console.log("File Contents", playlist);
+
+	//Initial Ajax population
+	for (var i = 0; i < playlist.songs.length; i++) {
+
+		outputSongs[i] = "<div class='song'><h2>" + playlist.songs[i].title + 
+						"</h2><ul><li>" + playlist.songs[i].artist + 
+						"</li><li class='middle'>" + playlist.songs[i].album + 
+						"</li><li>" + playlist.songs[i].genre + 
+						"</li></ul> <button class='delete-song' type='button'>Delete</button> </div>";
+
+
+		$("#artist").append("<option class='filter-artist'>" + playlist.songs[i].artist + "</option>");
+		$("#album").append("<option class='filter-album'>" + playlist.songs[i].album + "</option>");
+		}
+
+	// pull this out to be a function after the filter works
+	var a = $(".filter-artist");
+	filterThis(a);
+	// 	filterArtist[l] = a.eq(l).val();
+	// 	}
+
+	// $("#artist").html($.unique($("#artist")));
+
+
+	//In 'song-info' this outputs the entire outputSongs array into the innerHTML
+	$("#song-info").append(outputSongs);
+	$("#song-info").append(moreButton);
+
+} //End of AJAX Callback Function
+
+function filterSong(thing) {
+	thing = thing.replace(">", "-");
+	thing = thing.replace(/[&\/\\#,+()!@$~%.*?{}]/g, '');
+	return thing;
+}
+
+$(document).on('click', '#more', function(event) {
+	$(this).remove();
+	$.ajax({
+	    url: "data/more-songs.json"
+	}).done(executeMe);
+});
+
+
+$.ajax({
+    url: "data/songs.json"
+}).done(executeMe);
 
 var songs = [];
 var outputSongs = [];
-var playlist = []; // This will hold all my songs as objects
+var playlist = [];
+var moreButton = "<button id='more' type='button'>Display More Songs</button>";
 
 var songInfo = $("#song-info");
 var songInput = $("#song-input");
 var controls = $("#controls");
 var buttonAdd = $("#button-add");
+var filterArtist = [];
 
-songs[songs.length] = "Rise - by Yoko Kanno on the album Ghost in the Shell OST";
-songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
-songs[songs.length] = "Dare - by Gorillaz on the album Demon Days";
-
-function filterSong(song) {
-	song = song.replace(">", "-");
-	song = song.replace(/[&\/\\#,+()!@$~%.*?{}]/g, '');
-	return song;
-}
-
-//hard-coded song population
-for (var i = 0; i < songs.length; i++) {
-	song = filterSong(songs[i]);
-
-	var songName = song.slice(0, song.indexOf("-")-1);
-	var artistName = song.slice(song.indexOf("by")+3, song.indexOf("on the album"));
-	var albumName = song.slice(song.indexOf("album")+6);
-
-	playlist[i] = {};
-	playlist[i].title = songName;
-	playlist[i].artist = artistName;
-	playlist[i].album = albumName;
-	playlist[i].genre = "pop";
-	outputSongs[i] = "<div class='song'><h2>" + playlist[i].title + 
-					"</h2><ul><li>" + playlist[i].artist + 
-					"</li><li class='middle'>" + playlist[i].album + 
-					"</li><li>" + playlist[i].genre + 
-					"</li></ul></div>";
-
-	$("#artist").append("<option>" + playlist[i].artist + "</option>");
-	$("#album").append("<option>" + playlist[i].album + "</option>");
-}
-
-//In 'song-info' this outputs the entire outputSongs array into the innerHTML
-$("#song-info").html(outputSongs);
 
 // Listening for clicks
 $("body").click( function(event) {
@@ -82,11 +120,9 @@ function update() {
 			"</h2><ul><li>" + playlist[index].artist + 
 			"</li><li class='middle'>" + playlist[index].album + 
 			"</li><li>" + playlist[index].genre + 
-			"</li></ul></div>";
+			"</li></ul> <button class='delete-song' type='button'>Delete</button> </div>";
 
-	outputSongs.unshift(output);
-
-	$("#song-info").html(outputSongs);
+	$("#song-info").prepend(output);
 
 	$("[name='song-add']").val("");
 	$("[name='artist-add']").val("");
@@ -94,18 +130,23 @@ function update() {
 	$("[name='genre-add']").val("");
 
 	// Putting the songs Artists into the filter
-	$("#artist").html("");
+	// $("#artist").html("");
 	for (var i = 0; i < playlist.length; i++) {
-		$("#artist").append("<option>" + playlist[i].artist + "</option>");
-		$("#album").append("<option>" + playlist[i].album + "</option>");
+		$("#artist").append("<option class='filter-artist'>" + playlist[i].artist + "</option>");
+		$("#album").append("<option class='filter-album'>" + playlist[i].album + "</option>");
 	};
 
+	var a = $(".filter-artist");
+	for (var l = 0; l < a.length; l++) {
+		filterArtist[l] = a.eq(l).val();
+		console.log("Will this update filter?", filterArtist);
+	}
 	//Switch back to music list window
 	buttonAdd.attr("disabled", "true");
 	songInfo.show();
 	controls.show();
 	songInput.hide();
-	}
+}
 
 buttonAdd.attr("disabled", "true");
 
@@ -123,6 +164,17 @@ function validate(){
 fieldInput.keyup(validate);
 
 buttonAdd.click(update);
+
+$(document).on('click', '.delete-song', function(event) {
+	$(this).parent().remove();
+});
+
+// $(document).on('click', function(event) {
+// 	console.log("Why?");
+// 	console.log("This is a thing for filter?", $("option").eq(0).val());
+// });
+
+
 
 }); //End of JQuery function
 

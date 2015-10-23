@@ -1,0 +1,28 @@
+{
+  "songs": [
+    {
+      "title": "Clint Eastwood",
+      "artist": "Gorillaz",
+      "album": "Gorillaz",
+      "genre": "Pop"    
+    },
+    {
+      "title": "Robot Nation",
+      "artist": "Daft Punk",
+      "album": "Daft Punk",
+      "genre": "Techno"      
+    },
+    {
+      "title": "Rise",
+      "artist": "Yoko Kanno",
+      "album": "Ghost in the Shell: Stand Alone Complex",
+      "genre": "OST"      
+    },
+    {
+      "title": "Dare",
+      "artist": "Gorillaz",
+      "album": "Demon Days",
+      "genre": "Pop"      
+    }
+  ]
+}

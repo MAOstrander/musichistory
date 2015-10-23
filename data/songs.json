@@ -1,40 +1,28 @@
 {
   "songs": [
     {
-      "title": "Clubbed to Death",
-      "artist": "",
-      "album": "",
-      "genre": ""
-    },
-    {
       "title": "Do You Want to Fight Me",
       "artist": "Venus Hum",
       "album": "Venus Hum",
-      "genre": ""
+      "genre": "Club"
+    },
+    {
+      "title": "Clubbed to Death",
+      "artist": "Yarp",
+      "album": "Yark",
+      "genre": "Club"
     },
     {
       "title": "An Open Letter",
       "artist": "Stuck Mojo",
       "album": "Decleration of a Headhunter",
-      "genre": ""    
+      "genre": "Rock"    
     },
     {
       "title": "Bohemian Rhapsody",
       "artist": "Queen",
       "album": "Greatest Hits Vol2",
-      "genre": ""      
-    },
-    {
-      "title": "Clint Eastwood",
-      "artist": "Gorillaz",
-      "album": "Gorillaz",
-      "genre": ""    
-    },
-    {
-      "title": "Robot Nation",
-      "artist": "Daft Punk",
-      "album": "Daft Punk",
-      "genre": ""      
+      "genre": "Classic"      
     }
   ]
 }
