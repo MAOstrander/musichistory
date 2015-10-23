@@ -1,5 +1,11 @@
 $(document).ready(function() { 
 
+
+// $.ajax({
+//     url: "data/songs.json"
+// }).done(executeMe);
+
+
 var songs = [];
 var outputSongs = [];
 var playlist = []; // This will hold all my songs as objects
