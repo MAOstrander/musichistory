@@ -37,14 +37,17 @@ for (var i = 0; i < songs.length; i++) {
 	playlist[i].album = albumName;
 	playlist[i].genre = "pop";
 	outputSongs[i] = "<div class='song'><h2>" + playlist[i].title + 
-					"</h2><ul><li>" + playlist[i].artist; + 
+					"</h2><ul><li>" + playlist[i].artist + 
 					"</li><li class='middle'>" + playlist[i].album + 
 					"</li><li>" + playlist[i].genre + 
 					"</li></ul></div>";
+
+	$("#artist").append("<option>" + playlist[i].artist + "</option>");
+	$("#album").append("<option>" + playlist[i].album + "</option>");
 }
 
 //In 'song-info' this outputs the entire outputSongs array into the innerHTML
-	$("#song-info").html(outputSongs);
+$("#song-info").html(outputSongs);
 
 // Listening for clicks
 $("body").click( function(event) {
@@ -70,7 +73,7 @@ function update() {
 	playlist[index].genre = filterSong($("[name='genre-add']").val() );
 
 	output = "<div class='song'><h2>" + playlist[index].title + 
-			"</h2><ul><li>" + playlist[index].artist; + 
+			"</h2><ul><li>" + playlist[index].artist + 
 			"</li><li class='middle'>" + playlist[index].album + 
 			"</li><li>" + playlist[index].genre + 
 			"</li></ul></div>";
@@ -83,6 +86,13 @@ function update() {
 	$("[name='artist-add']").val("");
 	$("[name='album-add']").val("");
 	$("[name='genre-add']").val("");
+
+	// Putting the songs Artists into the filter
+	$("#artist").html("");
+	for (var i = 0; i < playlist.length; i++) {
+		$("#artist").append("<option>" + playlist[i].artist + "</option>");
+		$("#album").append("<option>" + playlist[i].album + "</option>");
+	};
 
 	//Switch back to music list window
 	buttonAdd.attr("disabled", "true");
