@@ -13,9 +13,44 @@
 </head>
 
 
-<body> 
+<body>
+
+    <!-- Control Bar on Left Side-->
     <div class="container">
-      <div id="content" class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+    <div id="controls" class="col-md-2">
+        <label>Song Length:
+          <input id="song-length" type="range" name="song-length">
+        </label>
+
+        <label for="artist">Artist:
+          <select id="artist" name="artist">
+            <option class='filter-artist'></option>
+          </select>
+        </label>
+
+        <label for="album">Album:
+          <select id="album" name="album">
+            <option class='filter-album'></option>
+          </select>
+        </label>
+
+        <p>Genre:</p>
+        <div id="col-1">
+          <label><input type="checkbox" name="genre" value="rock">Rock</label>
+          <label><input type="checkbox" name="genre" value="pop">Pop</label>
+          <label><input type="checkbox" name="genre" value="blues">Blues</label>
+        </div>
+        <div id="col-2">
+          <label><input type="checkbox" name="genre" value="classical">Classical</label>
+          <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
+          <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+        </div>
+        <input type="submit" value="Filter"></input>
+    </div>
+    </div>
+
+    <div id="content" class="container">
+      <div  class="col-md-8">
 
         <!-- Navigation Header at Top-->
         <nav class="navbar navbar-default navbar-fixed-top" id="navi">
@@ -51,41 +86,7 @@
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
-        </nav>
-
-        <!-- Control Bar on Left Side-->
-        <div id="controls">
-            <label>Song Length:
-              <input id="song-length" type="range" name="song-length">
-            </label>
-
-            <label for="artist">Artist:
-              <select id="artist" name="artist">
-                <option class='filter-artist'></option>
-              </select>
-            </label>
-
-            <label for="album">Album:
-              <select id="album" name="album">
-                <option class='filter-album'></option>
-              </select>
-            </label>
-
-
-            <p>Genre:</p>
-            <div id="col-1">
-              <label><input type="checkbox" name="genre" value="rock">Rock</label>
-              <label><input type="checkbox" name="genre" value="pop">Pop</label>
-              <label><input type="checkbox" name="genre" value="blues">Blues</label>
-            </div>
-            <div id="col-2">
-              <label><input type="checkbox" name="genre" value="classical">Classical</label>
-              <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
-              <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
-            </div>
-            <input type="submit" value="Filter"></input>
-        </div>
-        
+        </nav>        
 
         <!-- Song Input for Add Music -->
         <div id="song-input" class="display-hide">
