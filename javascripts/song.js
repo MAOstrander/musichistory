@@ -89,7 +89,7 @@ var moreButton = "<button id='more' type='button'>Display More Songs</button>";
 var songInfo = $("#song-info");
 var songInput = $("#song-input");
 var controls = $("#controls");
-var buttonAdd = $("#button-add");
+var buttonAdd = $(".button-add");
 var filterArtist = [];
 
 

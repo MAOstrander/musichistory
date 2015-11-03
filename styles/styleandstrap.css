@@ -1,5 +1,6 @@
 body {
   padding: 0;
+  padding-top: 70px;
   margin: 0;
   background-color: #eee;
 }
@@ -8,6 +9,7 @@ body {
   overflow: auto;
   border-radius: 20px;
   background: linear-gradient(#333, #ddd);
+  padding-top: 10px;
 }
 
 #navi, #controls, #song-input {
@@ -78,7 +80,6 @@ li {
 
 #song-info {
 	background-color: #eee;
-	width: 512px;
 	/*margin-top: 80px;*/
   margin-left: 178px;
   float: left;
