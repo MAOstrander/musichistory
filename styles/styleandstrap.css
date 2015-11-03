@@ -1,0 +1,139 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #eee;
+}
+
+#content {
+  overflow: auto;
+  border-radius: 20px;
+  background: linear-gradient(#333, #ddd);
+}
+
+#navi, #controls, #song-input {
+	border: 2px solid #ddd;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+#navi {
+	background-color: #333;
+  /*position: fixed;*/
+  color: #ddd;
+}
+
+#controls {
+	background-color: #b00;
+	width: 158px;
+  height: 350px;
+	/*margin-top: 80px;*/
+  margin-left: 10px;
+  padding: 10px;
+	float: left;
+  position: fixed;
+}
+
+/*toggle-able class for displaying and hiding*/
+.display-hide {
+  display: none;
+}
+
+/*Add music inputs*/
+#song-input {
+  background-color: #b00;
+  width: 100%;
+  /*margin-top: 80px;*/
+  padding: 20px;
+  float: left;
+}
+
+/* Song content styling */
+/*.song h2 {
+  color: #785616;
+}*/
+
+.song {
+  padding-left: 40px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  box-sizing: border-box;
+  color: #ddd;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  display: inline;
+  padding: 0 3px 0 3px;
+}
+
+.middle {
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+}
+
+
+#song-info {
+	background-color: #eee;
+	width: 512px;
+	/*margin-top: 80px;*/
+  margin-left: 178px;
+  float: left;
+}
+
+#song-info div:nth-of-type(2n+1) {
+  background: linear-gradient(to left, #44e, #444);
+  display: inline-block;
+  min-width: 100%;
+}
+#song-info div:nth-of-type(2n+0) {
+  background: linear-gradient(to right, #44e, #444);
+  display: inline-block;
+  min-width: 100%;
+} 
+#song-info div:first-of-type {
+  font-weight: bolder;
+}
+#song-info div:last-of-type {
+  border-bottom: 2px solid black;
+}
+
+#song-info div:first-of-type > h2 {
+  color: #fcc;
+  font-size: 1.6em;
+}
+
+#song-info div:first-of-type > ul::after {
+  content: "Currently Playing";
+  color: #333;
+  font-size: .8em;
+  float: right;
+  margin-right: 5px;
+}
+
+
+/* Form styling */
+label, select {
+	display: block;
+  margin-bottom: 2px;
+  width: 100%;
+}
+input[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Links */
+a:visited {
+  text-decoration: none;
+}
+
+#col-1 {
+  float: left;
+}
+#col-2 {
+  float: right;
+}

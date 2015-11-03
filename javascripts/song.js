@@ -1,20 +1,20 @@
-$(document).ready(function() { 
+define(["jquery","lodash", "bootstrap"], function(jQuery, _, bootstrap) {
 
-// var mySongs = new Firebase("https://mistory.firebaseio.com/");
+	// var mySongs = new Firebase("https://mistory.firebaseio.com/");
 
-// To write a song to firebase
-// myFirebaseRef.set({
-//   title: "One Winged Angel",
-//   artist: "Nobuo Uematsu",
-//   album: "Final Fantasy 7",
-//   genre: "Classic"
-// });
+	// To write a song to firebase
+	// myFirebaseRef.set({
+	//   title: "One Winged Angel",
+	//   artist: "Nobuo Uematsu",
+	//   album: "Final Fantasy 7",
+	//   genre: "Classic"
+	// });
 
-// // This takes a 'snapshot' of the database at the time you call it and allows you to traverse to any 
-// // particular value like an object.
-// mySongs.child("playlist").child("songs").child("title").on("value", function(snapshot) {
-//   console.log(snapshot.val());  // Alerts "Final Fantasy 7"
-// });
+	// // This takes a 'snapshot' of the database at the time you call it and allows you to traverse to any 
+	// // particular value like an object.
+	// mySongs.child("playlist").child("songs").child("title").on("value", function(snapshot) {
+	//   console.log(snapshot.val());  // Alerts "Final Fantasy 7"
+	// });
 
 function filterThis (filterMe) {
 	var yarp = [];
@@ -134,7 +134,7 @@ function update() {
 	for (var i = 0; i < playlist.length; i++) {
 		$("#artist").append("<option class='filter-artist'>" + playlist[i].artist + "</option>");
 		$("#album").append("<option class='filter-album'>" + playlist[i].album + "</option>");
-	};
+	}
 
 	var a = $(".filter-artist");
 	for (var l = 0; l < a.length; l++) {
@@ -176,5 +176,5 @@ $(document).on('click', '.delete-song', function(event) {
 
 
 
-}); //End of JQuery function
+}); //END DEFINE FUNCTION
 

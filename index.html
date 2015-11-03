@@ -4,88 +4,119 @@
 <head>
   <meta charset="utf-8">
   <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-  <title>Music History Assignment Version 5</title>
-  <link rel="stylesheet" type="text/css" href="styles/style3.css">
+  <title>Music History Assignment Version 6</title>
+
+  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="styles/styleandstrap.css">
 </head>
 
 
 <body> 
-  
-    <div id="content">
-    <!-- Navigation Header at Top-->
-    <div id="navi">
-      <nav>
-        <ul>
-          <li id="list">List Music</li>
-          <li class="middle" id="add">Add Music</li>
-          <li>Profile</li>
-        </ul>
-      </nav>
-    </div>
+    <div class="container">
+      <div class="col-xs-1 col-md-2"></div>
+      <div id="content" class="col-xs-10 col-md-8">
+
+        <!-- Navigation Header at Top-->
+        <nav class="navbar navbar-default" id="navi">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Profile</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">List Music<span class="sr-only">(current)</span></a></li>
+                <li><a href="#" id="add">Add Music</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quick Add Music<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>Name of Song<input type="text" name="song-add"></li>
+                    <li>Artist<input type="text" name="artist-add"></li>
+                    <li>Album<input type="text" name="album-add"></li>
+                    <li>Genre<input type="text" name="genre-add"></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><button id="button-add">Add</button></li>
+                    <li role="separator" class="divider"></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+        <!-- Control Bar on Left Side-->
+        <div id="controls">
+            <label>Song Length:
+              <input id="song-length" type="range" name="song-length">
+            </label>
+
+            <label for="artist">Artist:
+              <select id="artist" name="artist">
+                <option class='filter-artist'></option>
+              </select>
+            </label>
+
+            <label for="album">Album:
+              <select id="album" name="album">
+                <option class='filter-album'></option>
+              </select>
+            </label>
 
 
-    <!-- Control Bar on Left Side-->
-    <div id="controls">
-        <label>Song Length:
-          <input id="song-length" type="range" name="song-length">
-        </label>
-
-        <label for="artist">Artist:
-          <select id="artist" name="artist">
-            <option class='filter-artist'></option>
-          </select>
-        </label>
-
-        <label for="album">Album:
-          <select id="album" name="album">
-            <option class='filter-album'></option>
-          </select>
-        </label>
-
-
-        <p>Genre:</p>
-        <div id="col-1">
-          <label><input type="checkbox" name="genre" value="rock">Rock</label>
-          <label><input type="checkbox" name="genre" value="pop">Pop</label>
-          <label><input type="checkbox" name="genre" value="blues">Blues</label>
+            <p>Genre:</p>
+            <div id="col-1">
+              <label><input type="checkbox" name="genre" value="rock">Rock</label>
+              <label><input type="checkbox" name="genre" value="pop">Pop</label>
+              <label><input type="checkbox" name="genre" value="blues">Blues</label>
+            </div>
+            <div id="col-2">
+              <label><input type="checkbox" name="genre" value="classical">Classical</label>
+              <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
+              <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+            </div>
+            <input type="submit" value="Filter"></input>
         </div>
-        <div id="col-2">
-          <label><input type="checkbox" name="genre" value="classical">Classical</label>
-          <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
-          <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+        
+
+        <!-- Song Input for Add Music -->
+        <div id="song-input" class="display-hide">
+          <label>
+            <input type="text" name="song-add"> Name of Song
+          </label>
+          <label>
+            <input type="text" name="artist-add"> Artist
+          </label>
+          <label>
+            <input type="text" name="album-add"> Album
+          </label>
+          <label>
+            <input type="text" name="genre-add"> Genre
+          </label>
+          <!-- <button id="button-add">Add</button>   -->
         </div>
-        <input type="submit" value="Filter"></input>
-    </div>
-    
 
-    <!-- Song Input for Add Music -->
-    <div id="song-input" class="display-hide">
-      <label>
-        <input type="text" name="song-add"> Name of Song
-      </label>
-      <label>
-        <input type="text" name="artist-add"> Artist
-      </label>
-      <label>
-        <input type="text" name="album-add"> Album
-      </label>
-      <label>
-        <input type="text" name="genre-add"> Genre
-      </label>
-      <button id="button-add">Add</button>  
-    </div>
+        <!-- Body into which the JavaScript inserts songs-->
+        <div id="song-info">
+        </div>
 
-    <!-- Body into which the JavaScript inserts songs-->
-    <div id="song-info">
     </div>
-
+    <div class="col-xs-1 col-md-2"></div>
   </div>
 
-  <!-- <footer class="cleared">
-    This page created by Mathew Ostrander
-  </footer> -->
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-  <script type="text/javascript" src="javascripts/song.js"></script>
+  <script data-main="javascripts/go" src="lib/bower_components/requirejs/require.js"></script>
 </body>
 </html>
