@@ -14,8 +14,16 @@ requirejs.config({
 });
 
 require(
-	["song"],
-	function(song) {
+	["song", "populate-songs", "get-more-songs", "executeMe"],
+	function(song, populate, more, executeMe) {
+
+	  // Get the first list of songs (passing a callback function reference)
+	  populate.fetchData(executeMe.executeMe);
+
+	  $(document).on('click', '#more', function(event) {
+		  // Get the second list of songs (passing a callback function reference)
+		  more.fetchData(executeMe.executeMe);
+	  });
 
 	}
 );
