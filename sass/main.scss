@@ -1,5 +1,5 @@
 body {
-  padding: 0;
+  padding: 5px;
   padding-top: 70px;
   margin: 0;
   background-color: #eee;
@@ -70,8 +70,7 @@ li {
 }
 
 div#song-info {
-	background-color: #eee;
-  padding: 0;
+  padding: 10px;
 }
 
 #song-info div:nth-of-type(2n+1) {

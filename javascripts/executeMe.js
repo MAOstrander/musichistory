@@ -6,14 +6,14 @@ define(["jquery", "lodash"], function($, _) {
 			yarp[l] = filterMe.eq(l).val();
 		}
 			yarp = _.uniq(yarp);
-		console.log("filterMe after:", yarp);
+		// console.log("filterMe after:", yarp);
 
 		return yarp;
 	}
 
 	function executeMe(playlist){
 		var outputSongs = [];
-		console.log("File Contents", playlist);
+		// console.log("File Contents", playlist);
 
 		//Initial Ajax population
 		for (var i = 0; i < playlist.songs.length; i++) {
@@ -22,7 +22,7 @@ define(["jquery", "lodash"], function($, _) {
 							"</h2><ul><li>" + playlist.songs[i].artist + 
 							"</li><li class='middle'>" + playlist.songs[i].album + 
 							"</li><li>" + playlist.songs[i].genre + 
-							"</li></ul> <button class='delete-song' type='button'>Delete</button> </div>";
+							"</li></ul> <button class='delete-song btn btn-default' type='button'>Delete</button> </div>";
 
 
 			$("#artist").append("<option class='filter-artist'>" + playlist.songs[i].artist + "</option>");
@@ -36,13 +36,13 @@ define(["jquery", "lodash"], function($, _) {
 
 		$("#artist").html("");
 		for (i = 0; i < artistFiltered.length; i++) {
-			console.log("yarp", artistFiltered[i]);
+			// console.log("yarp", artistFiltered[i]);
 			$("#artist").append("<option class='filter-artist'>" + artistFiltered[i] + "</option>");
 		}
 
 		$("#album").html("");
 		for (i = 0; i < albumFiltered.length; i++) {
-			console.log("yarp", albumFiltered[i]);
+			// console.log("yarp", albumFiltered[i]);
 			$("#album").append("<option class='filter-album'>" + albumFiltered[i] + "</option>");
 		}
 
