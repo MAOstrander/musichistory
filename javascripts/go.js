@@ -9,13 +9,13 @@ requirejs.config({
 	paths : {
 		"jquery": "../lib/bower_components/jquery/dist/jquery.min",
 		"lodash": "../lib/bower_components/lodash/lodash",
+		"hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
 		"bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min"
 	}
 });
 
-require(
-	["song", "populate-songs", "get-more-songs"],
-	function(song, populate, more) {
+require(["song", "hbs", "populate-songs", "get-more-songs"],
+	function(song, Handlebars, populate, more) {
 
 	  // Get the first list of songs (passing a callback function reference)
 	  populate.fetchData();

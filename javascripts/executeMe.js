@@ -12,17 +12,10 @@ define(["jquery", "lodash"], function($, _) {
 	}
 
 	function executeMe(playlist){
-		var outputSongs = [];
 		// console.log("File Contents", playlist);
 
 		//Initial Ajax population
 		for (var i = 0; i < playlist.songs.length; i++) {
-
-			outputSongs[i] = "<div class='song'><h2>" + playlist.songs[i].title + 
-							"</h2><ul><li>" + playlist.songs[i].artist + 
-							"</li><li class='middle'>" + playlist.songs[i].album + 
-							"</li><li>" + playlist.songs[i].genre + 
-							"</li></ul> <button class='delete-song btn btn-default' type='button'>Delete</button> </div>";
 
 
 			$("#artist").append("<option class='filter-artist'>" + playlist.songs[i].artist + "</option>");
@@ -50,10 +43,6 @@ define(["jquery", "lodash"], function($, _) {
 		// 	}
 
 		// $("#artist").html($.unique($("#artist")));
-
-
-		//In 'song-info' this outputs the entire outputSongs array into the innerHTML
-		$("#song-info").append(outputSongs);
 
 	} //End of Callback Function
 
