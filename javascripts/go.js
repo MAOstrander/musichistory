@@ -14,15 +14,15 @@ requirejs.config({
 });
 
 require(
-	["song", "populate-songs", "get-more-songs", "executeMe"],
-	function(song, populate, more, executeMe) {
+	["song", "populate-songs", "get-more-songs"],
+	function(song, populate, more) {
 
 	  // Get the first list of songs (passing a callback function reference)
-	  populate.fetchData(executeMe.executeMe);
+	  populate.fetchData();
 
-	  $(document).on('click', '#more', function(event) {
+	  document.getElementById('more').addEventListener('click', function(event) {
 		  // Get the second list of songs (passing a callback function reference)
-		  more.fetchData(executeMe.executeMe);
+		  more.fetchData();
 	  });
 
 	}

@@ -32,7 +32,8 @@ var playlist = [];
 var songInfo = $("#song-info");
 var songInput = $("#song-input");
 var controls = $("#controls");
-var buttonAdd = $(".button-add");
+var buttonAdd = $("#button-add");
+var buttonQuickAdd = $("#button-quick-add");
 
 // Listening for clicks
 $("body").click( function(event) {
@@ -40,11 +41,13 @@ $("body").click( function(event) {
  	if (event.target.id === "list") {
 		songInfo.show();
 		controls.show();
+		$("#maybe-art").show();
 		songInput.hide();
 	} else if (event.target.id === "add") {
 		songInput.show();
 		songInfo.hide();
 		controls.hide();
+		$("#maybe-art").hide();
 	}
 });
 
@@ -61,7 +64,7 @@ function update() {
 			"</h2><ul><li>" + playlist[index].artist + 
 			"</li><li class='middle'>" + playlist[index].album + 
 			"</li><li>" + playlist[index].genre + 
-			"</li></ul> <button class='delete-song' type='button'>Delete</button> </div>";
+			"</li></ul> <button class='delete-song btn btn-default' type='button'>Delete</button> </div>";
 
 	$("#song-info").prepend(output);
 
@@ -93,21 +96,28 @@ function update() {
 }
 
 buttonAdd.attr("disabled", "true");
-
+buttonQuickAdd.attr("disabled", "true");
 var fieldInput = $(":text");
 function validate(){
 	if (fieldInput.eq(0).val() !== "" && 
 		fieldInput.eq(1).val() !== "" && 
 		fieldInput.eq(2).val() !== "" && 
 		fieldInput.eq(3).val() !== "") {
+		buttonQuickAdd.removeAttr("disabled");
+	} else if (fieldInput.eq(4).val() !== "" && 
+		fieldInput.eq(5).val() !== "" && 
+		fieldInput.eq(6).val() !== "" && 
+		fieldInput.eq(7).val() !== "") {
 		buttonAdd.removeAttr("disabled");
 	} else {
 		buttonAdd.attr("disabled", "true");
+		buttonQuickAdd.attr("disabled", "true");
 	}
 }
 fieldInput.keyup(validate);
 
 buttonAdd.click(update);
+buttonQuickAdd.click(update);
 
 $(document).on('click', '.delete-song', function(event) {
 	$(this).parent().remove();

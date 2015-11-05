@@ -32,9 +32,7 @@ body {
 /*Add music inputs*/
 #song-input {
   background-color: #b00;
-  width: 100%;
-  padding: 20px;
-  float: left; }
+  padding: 20px; }
 
 /* Song content styling */
 .song {
@@ -44,6 +42,9 @@ body {
   border-left: 2px solid black;
   box-sizing: border-box;
   color: #ddd; }
+
+.song button {
+  color: black; }
 
 ul {
   padding-left: 0px; }
@@ -118,5 +119,8 @@ input[type="submit"] {
 
 .dropdown-menu input {
   color: black; }
+
+#maybe-art img {
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

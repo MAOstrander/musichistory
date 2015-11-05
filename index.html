@@ -44,7 +44,7 @@
                 <li>Artist<input type="text" name="artist-add"></li>
                 <li>Album<input type="text" name="album-add"></li>
                 <li>Genre<input type="text" name="genre-add"></a></li>
-                <li><button class="button-add">Add</button></li>
+                <li><button id="button-quick-add">Add</button></li>
               </ul>
             </li>
           </ul>
@@ -86,7 +86,7 @@
             </div>
 
             <!-- Song Input for Add Music (WILL HIDE OR DISPLAY BY BUTTONPRESS)-->
-            <div id="song-input" class="display-hide col-sm-12">
+            <div id="song-input" class="display-hide col-sm-8 col-sm-offset-2">
               <label>
                 <input type="text" name="song-add"> Name of Song
               </label>
@@ -99,7 +99,10 @@
               <label>
                 <input type="text" name="genre-add"> Genre
               </label>
-              <button class="button-add">Add</button>  
+              <label>
+                <input type="text" name="image-add"> Album Art
+              </label>
+              <button id="button-add">Add</button>  
             </div>
             <!-- Body into which the JavaScript inserts songs-->
             <div id="song-info" class="col-sm-5">
@@ -107,7 +110,7 @@
 
             <!-- Maybe put album art here -->
             <div id="maybe-art" class="col-sm-5">
-                <p>Maybe put album info here</p>
+                <img src="images/VenusHum.jpg">
             </div>
         </div> <!-- HERE IS MY ROW ENDER -->
     </div> <!-- container fluid div -->

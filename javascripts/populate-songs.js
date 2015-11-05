@@ -1,10 +1,10 @@
-define(["jquery"], function($) {
+define(["jquery", "executeMe"], function($, executeMe) {
   return {
-    fetchData: function(executeMe) {
+    fetchData: function() {
       $.ajax({
       	url: "data/songs.json"
       	}).done(function(data) {
-          executeMe(data);
+          executeMe.executeMe(data);
         });
     }
   };
