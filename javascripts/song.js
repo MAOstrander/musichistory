@@ -1,29 +1,13 @@
 define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe"],
 	function($, _, bootstrap, executeMe, updateMe) {
 
-	// var mySongs = new Firebase("https://mistory.firebaseio.com/");
-	// To write a song to firebase
-	// myFirebaseRef.set({
-	//   title: "One Winged Angel",
-	//   artist: "Nobuo Uematsu",
-	//   album: "Final Fantasy 7",
-	//   genre: "Classic"
-	// });
-
-	// // This takes a 'snapshot' of the database at the time you call it and allows you to traverse to any 
-	// // particular value like an object.
-	// mySongs.on("value", function(snapshot) {
-	//   var playlist = snapshot.child("User").child("playlist1").val();
-	//   console.log("playlist", playlist);
-	// });
-
 	var songs = [];
 
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
 	var controls = $("#controls");
 	var buttonAdd = $("#button-add");
-	var buttonQuickAdd = $("#button-quick-add");
+	var buttonPlaylist = $("#playlist-button");
 
 	// Listening for clicks
 	$("body").click( function(event) {
@@ -42,28 +26,21 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe"],
 	});
 
 	buttonAdd.attr("disabled", "true");
-	buttonQuickAdd.attr("disabled", "true");
 	var fieldInput = $(":text");
 	function validate(){
 		if (fieldInput.eq(0).val() !== "" && 
 			fieldInput.eq(1).val() !== "" && 
 			fieldInput.eq(2).val() !== "" && 
 			fieldInput.eq(3).val() !== "") {
-			buttonQuickAdd.removeAttr("disabled");
-		} else if (fieldInput.eq(4).val() !== "" && 
-			fieldInput.eq(5).val() !== "" && 
-			fieldInput.eq(6).val() !== "" && 
-			fieldInput.eq(7).val() !== "") {
 			buttonAdd.removeAttr("disabled");
 		} else {
 			buttonAdd.attr("disabled", "true");
-			buttonQuickAdd.attr("disabled", "true");
 		}
 	}
 	fieldInput.keyup(validate);
 
-	buttonAdd.click(updateMe.updateMe);
-	buttonQuickAdd.click(updateMe.updateMe);
+	buttonAdd.click(updateMe.fullAdd);
+	buttonPlaylist.click(updateMe.quickAdd);
 
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();

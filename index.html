@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-    <title>Music History Assignment Version 6</title>
+    <title>Music History Assignment Version 7</title>
 
     <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
@@ -26,25 +26,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" id="list">List Music</a>
+          <a class="navbar-brand" href="#">Profile</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <li><a href="#" id="list">List Music</a></li>
             <li><a href="#" id="add">Add Music</a></li>
-            <li><a href="#" >Profile</a></li>
-            <li><a href="#" id="more">Display More Songs</a></li>
+            <li><a href="#" id="more">Find More Music</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quick Add Music<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Playlists<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li>Name of Song<input type="text" name="song-add"></li>
-                <li>Artist<input type="text" name="artist-add"></li>
-                <li>Album<input type="text" name="album-add"></li>
-                <li>Genre<input type="text" name="genre-add"></a></li>
-                <li><button id="button-quick-add" class="btn btn-default">Add</button></li>
+                <li>playlist1</li>
+                <li>playlist2</li>
+                <li><button id="playlist-button" class="btn btn-default">Create New Playlist</button></li>
               </ul>
             </li>
           </ul>
@@ -72,15 +70,7 @@
                 </label>
 
                 <p>Genre:</p>
-                <div id="col-1">
-                  <label><input type="checkbox" name="genre" value="rock">Rock</label>
-                  <label><input type="checkbox" name="genre" value="pop">Pop</label>
-                  <label><input type="checkbox" name="genre" value="blues">Blues</label>
-                </div>
-                <div id="col-2">
-                  <label><input type="checkbox" name="genre" value="classical">Classical</label>
-                  <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
-                  <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+                <div id="genre">
                 </div>
                 <input type="submit" value="Filter" class="btn btn-default"></input>
             </div>
