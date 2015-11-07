@@ -104,11 +104,8 @@ input[type="submit"] {
 #navi a:hover {
   color: red; }
 
-#col-1 {
-  float: left; }
-
-#col-2 {
-  float: right; }
+.control-button {
+  width: 30%; }
 
 .dropdown-menu {
   font-size: 1.5em;

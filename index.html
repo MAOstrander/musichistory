@@ -53,9 +53,19 @@
     <div class="container-fluid">
         <div class="row">  <!-- HERE IS MY ROW STARTER -->
             <div id="controls" class="col-sm-2">
-                <label>Song Length:
-                  <input id="song-length" type="range" name="song-length">
-                </label>
+                <div>
+                    <button id="play" type="button" class="btn btn-default control-button">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                    <button id="stop" type="button" class="btn btn-default control-button">
+                        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+                    </button>
+                    <button id="skip" type="button" class="btn btn-default control-button">
+                        <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                <h4>Filter Songs</h4>
 
                 <label for="artist">Artist:
                   <select id="artist" name="artist">
@@ -69,9 +79,10 @@
                   </select>
                 </label>
 
-                <p>Genre:</p>
+                <h5>Genre:</h5>
                 <div id="genre">
                 </div>
+                
                 <input type="submit" value="Filter" class="btn btn-default"></input>
             </div>
 

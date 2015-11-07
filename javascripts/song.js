@@ -42,6 +42,8 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe"],
 	buttonAdd.click(updateMe.fullAdd);
 	buttonPlaylist.click(updateMe.quickAdd);
 
+	$("input[type='submit']").click(function(){console.log("FILTER BUTTON PRESSED!");});
+
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();
 	});

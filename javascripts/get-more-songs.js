@@ -5,8 +5,14 @@ define(["jquery", "executeMe", 'hbs!../templates/songs'],
       $.ajax({
       	url: "data/more-songs.json"
       	}).done(function(song) {
-			$("#song-info").append(Handlebars(song));
-			executeMe.executeMe(song);
+          var playlist = Object.keys(song.songs).map( function( key ){
+            var y = song.songs[ key ];
+            y.key = key;
+            return y;
+          });
+
+			$("#song-info").append(Handlebars(playlist));
+			executeMe.executeMe(playlist);
 		});
     }
   };
