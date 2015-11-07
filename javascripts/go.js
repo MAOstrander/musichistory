@@ -19,7 +19,7 @@ require(["song", "hbs", "populate-songs", "get-more-songs"],
 
 	  // Get the first list of songs (passing a callback function reference)
 	  populate.fetchData();
-	  $("input[type='submit']").click(function(){console.log("YARPASF ", populate.playlist);});
+	  $("input[type='submit']").click(function(){console.log("YARPASF ", playlist);});
 	  
 
 	  document.getElementById('more').addEventListener('click', function(event) {

@@ -2,7 +2,7 @@ define(["jquery", "lodash"], function($, _) {
 	function timeToFilter (){
 		console.log("FILTER BUTTON PRESSED!");
 		// var filteredPlaylist = $(".song");
-		// console.log("test for global playlist", playlist);
+		console.log("test for global playlist", playlist);
 	}
 
 	       //  function findArtist(value) {

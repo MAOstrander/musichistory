@@ -1,9 +1,8 @@
 define(["jquery", "executeMe", 'hbs!../templates/songs'], 
 	function($, executeMe, Handlebars) {
-    var playlist = "test";
 
-    function fetchData(playlist) {
-      console.log("playlist prior to firebase", playlist);
+    function fetchData() {
+      // console.log("playlist prior to firebase", );
       var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
       mySongs.on("value", function(snapshot) {
         var song = snapshot.val();
@@ -36,7 +35,7 @@ define(["jquery", "executeMe", 'hbs!../templates/songs'],
   return {
 
       fetchData: fetchData,
-      playlist: playlist
+      // playlist: playlist
   }; //return statement for the file
 });
 

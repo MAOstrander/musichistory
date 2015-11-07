@@ -34,10 +34,10 @@ define(["jquery", "lodash"], function($, _) {
 		  "genre": fireGenre
 		});
 
-		output = "<div class='song'><h2>" + fireName + 
-				"</h2><ul><li>" + fireArtist + 
-				"</li><li class='middle'>" + fireAlbum + 
-				"</li><li>" + fireGenre + 
+		output = "<div class='song'><h2 class='title'>" + fireName + 
+				"</h2><ul><li class='artist'>" + fireArtist + 
+				"</li><li class='album'>" + fireAlbum + 
+				"</li><li class='genre'>" + fireGenre + 
 				"</li></ul> <button class='delete-song btn btn-default' type='button'>Delete</button> </div>";
 
 		$("#song-info").prepend(output);
