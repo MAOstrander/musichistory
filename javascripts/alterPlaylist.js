@@ -3,33 +3,52 @@ define(["jquery", "lodash", 'hbs!../templates/songs'],
 
 	function timeToFilter (){
 		var filteredPlay = playlist.slice(0);
-		console.log("FILTER BUTTON PRESSED!");
-		// var filteredPlaylist = $(".song");
-		// console.log("did the slice work?", filteredPlay);
-
 		var artistSelect = $("[name='artist']").val();
 		var albumSelect = $("[name='album']").val();
-		console.log("albumSelect", albumSelect);
+		var genreSelect = $(':checkbox[name=genre]').map(function () {
+   			if (this.checked) {
+      			return this.value;
+    		}
+    	});
 
 	    function findArtist(value) {
-          return value.artist === artistSelect;
-        }
-        function findAlbum(value) {
-          return value.album === albumSelect;
+	    	if(artistSelect !== ""){
+	    		return value.artist === artistSelect;
+	    	} else {
+	    		return value;
+	    	}
         }
 
-		if (artistSelect !== "") {
-         filteredPlay = playlist.filter(findArtist);
-		}
-		if (albumSelect !== "") {
-         filteredPlay = playlist.filter(findAlbum);
-		}
-		console.log("filteredPlay", filteredPlay);
+        function findAlbum(value) {
+          if(albumSelect !== ""){
+	    		return value.album === albumSelect;
+	    	} else {
+	    		return value;
+	    	}
+        }
+   
+   		function findGenre() {
+   			var holder = [];
+	   		for (var j = 0; j < filteredPlay.length; j++) {
+	        	for (var i = 0; i < genreSelect.length; i++) {
+
+	        		if (filteredPlay[j].genre === genreSelect[i]) {
+	        			holder.push(filteredPlay[j]);
+	        		}
+				}
+	        }
+	        return holder;
+    	}
+
+        filteredPlay = playlist.filter(findArtist).filter(findAlbum);
+
+    	if (genreSelect.length > 0) {
+    		filteredPlay = findGenre();
+    	} 
+
 
 		$("#song-info").html(Handlebars(filteredPlay));
-	}
-
-         // console.log("playlist again", playlist);
+	} //END OF timeToFilter FUNCTION
 
 	return {
 		timeToFilter: timeToFilter
