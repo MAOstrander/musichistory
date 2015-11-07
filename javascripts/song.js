@@ -1,5 +1,5 @@
-define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe"],
-	function($, _, bootstrap, executeMe, updateMe) {
+define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist"],
+	function($, _, bootstrap, executeMe, updateMe, alterPlaylist) {
 
 	var songs = [];
 
@@ -42,7 +42,7 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe"],
 	buttonAdd.click(updateMe.fullAdd);
 	buttonPlaylist.click(updateMe.quickAdd);
 
-	$("input[type='submit']").click(function(){console.log("FILTER BUTTON PRESSED!");});
+	$("input[type='submit']").click(alterPlaylist.timeToFilter);
 
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();
