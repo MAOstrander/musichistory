@@ -1,5 +1,5 @@
-define(["jquery", "executeMe", 'hbs!../templates/songs'], 
-	function($, executeMe, Handlebars) {
+define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"], 
+	function($, executeMe, Handlebars, alterPlaylist) {
 
     function fetchData() {
       // console.log("playlist prior to firebase", );
@@ -29,6 +29,7 @@ define(["jquery", "executeMe", 'hbs!../templates/songs'],
 
         $("#song-info").html(Handlebars(playlist));
          executeMe.executeMe(playlist);
+         alterPlaylist.checkArt();
       }); //mysongs.on snapshot
     }  //fetchdata function
 

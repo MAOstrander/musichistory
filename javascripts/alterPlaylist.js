@@ -1,7 +1,33 @@
 define(["jquery", "lodash", 'hbs!../templates/songs'], 
 	function($, _, Handlebars) {
 
-	function timeToFilter (){
+	function skipSong() {
+		var alter = $("#song-info .song").first();
+		alter.removeClass("playing");
+		$("#song-info").append(alter);
+		playSong();
+		checkArt();
+	}
+
+	function checkArt() {
+		var thingValue = $("#song-info .display-hide").first().html();
+		if (thingValue) {
+			$("#maybe-art").html("<img src=" + thingValue + ">");
+		} else {
+			$("#maybe-art").html("<img src='images/yourArtHere.jpg'>");
+
+		}
+	}
+
+	function playSong() {
+		var alter = $("#song-info .song").first().addClass("playing");
+	}
+
+	function stopSong() {
+		var alter = $("#song-info .song").first().removeClass("playing");
+	}
+
+	function timeToFilter() {
 		var filteredPlay = playlist.slice(0);
 		var artistSelect = $("[name='artist']").val();
 		var albumSelect = $("[name='album']").val();
@@ -48,9 +74,14 @@ define(["jquery", "lodash", 'hbs!../templates/songs'],
 
 
 		$("#song-info").html(Handlebars(filteredPlay));
+		checkArt();
 	} //END OF timeToFilter FUNCTION
 
 	return {
-		timeToFilter: timeToFilter
+		timeToFilter: timeToFilter,
+		skipSong: skipSong,
+		playSong: playSong,
+		stopSong: stopSong,
+		checkArt: checkArt
 	};
 }); //END DEFINE FUNCTION

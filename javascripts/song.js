@@ -1,8 +1,6 @@
 define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist"],
 	function($, _, bootstrap, executeMe, updateMe, alterPlaylist) {
 
-	var songs = [];
-
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
 	var controls = $("#controls");
@@ -41,11 +39,15 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 
 	buttonAdd.click(updateMe.fullAdd);
 	buttonPlaylist.click(updateMe.quickAdd);
+	$("#skip").click(alterPlaylist.skipSong);
+	$("#play").click(alterPlaylist.playSong);
+	$("#stop").click(alterPlaylist.stopSong);
 
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
 
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();
+		alterPlaylist.checkArt();
 	});
 
 

@@ -94,7 +94,7 @@ div#song-info {
   color: #fcc;
 }
 
-#song-info div:first-of-type > ul::after {
+.playing > ul::after {
   content: "Currently Playing";
   color: #333;
   font-size: .8em;
