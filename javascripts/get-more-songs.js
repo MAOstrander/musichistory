@@ -3,13 +3,14 @@ define(["jquery", "executeMe", 'hbs!../templates/songs'],
   return {
     fetchData: function() {
       $.ajax({
-      	url: "data/more-songs.json"
+      	url: "https://mistory.firebaseio.com/user2/playlist1/songs.json"
       	}).done(function(song) {
-          var playlist = Object.keys(song.songs).map( function( key ){
-            var y = song.songs[ key ];
-            y.key = key;
-            return y;
-          });
+          console.log("song", song);
+          // var playlist = Object.keys(song.songs).map( function( key ){
+          //   var y = song.songs[ key ];
+          //   y.key = key;
+          //   return y;
+          // });
 
 			$("#song-info").append(Handlebars(playlist));
 			executeMe.executeMe(playlist);
