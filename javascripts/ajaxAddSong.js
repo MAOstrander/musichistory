@@ -1,19 +1,23 @@
-$("addSong").click(function(e) {
+define(["jquery", "lodash"], function($, _) {
 
-  var newSong = {
-    "name": $("#songName").val(), 
-    "artist": $("#songArtist").val(),
-    "album": $("#songAlbum").val(),
-    "genre": $("#songGenre").val(),
-    "art": $("#songArt").val()
-  }
+  // $("#button-add").click(function(e) {
+
+    var newSong = {
+      "name": $("[name='song-add']").val(), 
+      "artist": $("[name='artist-add']").val(),
+      "album": $("[name='album-add']").val(),
+      "genre": $("[name='genre-add']").val(),
+      "art": $("[name='image-add']").val()
+    }
 
 
-  $.ajax({
-    url: "https://mistory.firebaseio.com/user2/playlist1/songs.json",
-    method: "POST",
-    data: JSON.stringify(newSong)
-  }).done(function(addedSong) {
-    console.log("Your New Song is", addedSong);
+    $.ajax({
+      url: "https://mistory.firebaseio.com/user/playlist2/songs.json",
+      method: "POST",
+      data: JSON.stringify(newSong)
+    }).done(function(addedSong) {
+      console.log("Your New Song is", addedSong);
+    });
   });
+
 });

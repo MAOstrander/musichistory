@@ -17,13 +17,17 @@ requirejs.config({
 require(["song", "hbs", "populate-songs", "get-more-songs"],
 	function(song, Handlebars, populate, more) {
 
-	  // Get the first list of songs (passing a callback function reference)
+	  var playlist;
+
+	  // Get the fir	st list of songs (passing a callback function reference)
 	  populate.fetchData();
 
 	  document.getElementById('more').addEventListener('click', function(event) {
 		  // Get the second list of songs (passing a callback function reference)
 		  more.fetchData();
 	  });
+
+
 
 	}
 );

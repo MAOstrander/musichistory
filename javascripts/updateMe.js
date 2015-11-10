@@ -31,7 +31,8 @@ define(["jquery", "lodash"], function($, _) {
 		  "name": fireName,
 		  "artist": fireArtist,
 		  "album": fireAlbum,
-		  "genre": fireGenre
+		  "genre": fireGenre,
+		  "art": $("[name='image-add']").val()
 		});
 
 		output = "<div class='song'><h2 class='title'>" + fireName + 
