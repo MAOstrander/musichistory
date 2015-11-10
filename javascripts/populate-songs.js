@@ -2,10 +2,14 @@ define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"],
 	function($, executeMe, Handlebars, alterPlaylist) {
 
     function fetchData() {
-      // console.log("playlist prior to firebase", );
-      var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
-      mySongs.on("value", function(snapshot) {
-        var song = snapshot.val();
+      //COMMENTED SECTION USES NOT-REST METHOD OF A WEBSOCKET
+      // var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
+      // mySongs.on("value", function(snapshot) {
+      //   var song = snapshot.val();
+       $.ajax({
+        url: "https://mistory.firebaseio.com/user/playlist1.json"
+        }).done(function(song) {
+
         console.log("playlist", song);
 
       playlist = Object.keys(song.songs).map( function( key ){
@@ -36,12 +40,5 @@ define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"],
   return {
 
       fetchData: fetchData,
-      // playlist: playlist
   }; //return statement for the file
 });
-
-  //     $.ajax({
-  //      url: "data/songs.json"
-  //      }).done(function(song) {
-     // $("#song-info").html(Handlebars(song));
-		// });

@@ -3,6 +3,7 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
+	var songArt = $("#maybe-art");
 	var controls = $("#controls");
 	var buttonAdd = $("#button-add");
 	var buttonPlaylist = $("#playlist-button");
@@ -13,13 +14,13 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	 	if (event.target.id === "list") {
 			songInfo.show();
 			controls.show();
-			$("#maybe-art").show();
+			songArt.show();
 			songInput.hide();
 		} else if (event.target.id === "add") {
 			songInput.show();
 			songInfo.hide();
 			controls.hide();
-			$("#maybe-art").hide();
+			songArt.hide();
 		}
 	});
 
@@ -43,6 +44,8 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	$("#play").click(alterPlaylist.playSong);
 	$("#stop").click(alterPlaylist.stopSong);
 
+	$("[name='artist']").on('change', alterPlaylist.timeToFilter);
+	$("[name='album']").on('change', alterPlaylist.timeToFilter);
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
 
 	$(document).on('click', '.delete-song', function(event) {

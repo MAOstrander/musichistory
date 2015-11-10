@@ -1,6 +1,7 @@
 define(["jquery", "lodash"], function($, _) {
 
   // $("#button-add").click(function(e) {
+  function addCurrentPlaylist() {
 
     var newSong = {
       "name": $("[name='song-add']").val(), 
@@ -12,12 +13,16 @@ define(["jquery", "lodash"], function($, _) {
 
 
     $.ajax({
-      url: "https://mistory.firebaseio.com/user/playlist2/songs.json",
+      url: "https://mistory.firebaseio.com/user/playlist1/songs.json",
       method: "POST",
       data: JSON.stringify(newSong)
     }).done(function(addedSong) {
       console.log("Your New Song is", addedSong);
     });
-  });
+  };
+
+  return {
+      addCurrentPlaylist: addCurrentPlaylist,
+  }; //return statement for the file
 
 });
