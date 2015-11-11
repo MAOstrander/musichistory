@@ -70,18 +70,44 @@ define(["jquery", "lodash", 'hbs!../templates/songs'],
 
     	if (genreSelect.length > 0) {
     		filteredPlay = findGenre();
-    	} 
+    	}
 
 
 		$("#song-info").html(Handlebars(filteredPlay));
 		checkArt();
 	} //END OF timeToFilter FUNCTION
 
+	function instantSearch() {
+		var testThis = $("input[name='search']").val()
+		var filteredPlay = playlist.slice(0);
+		console.log("searchInput Value:", $("input[name='search']").val());
+
+		function findAnything(value) {
+			var match = [];
+	    	if(testThis !== ""){
+	    		if (value.artist === testThis) {;
+	    			match[match.length] = value.artist;
+	    		return match;
+	    		}
+	    		if (value.album === testThis) {;
+	    			match[match.length] = value.album;
+	    		return match;
+	    		}
+	    	} else {
+	    		return value;
+	    	}
+        }
+        filteredPlay = playlist.filter(findAnything)
+
+        console.log("filteredPlay", filteredPlay);
+	}
+
 	return {
 		timeToFilter: timeToFilter,
 		skipSong: skipSong,
 		playSong: playSong,
 		stopSong: stopSong,
-		checkArt: checkArt
+		checkArt: checkArt,
+		instantSearch: instantSearch
 	};
 }); //END DEFINE FUNCTION

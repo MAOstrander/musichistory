@@ -38,6 +38,8 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	}
 	fieldInput.keyup(validate);
 
+	$("input[name='search']").keyup(alterPlaylist.instantSearch);
+
 	buttonAdd.click(updateMe.fullAdd);
 	buttonPlaylist.click(updateMe.quickAdd);
 	$("#skip").click(alterPlaylist.skipSong);
