@@ -2,7 +2,7 @@ define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"],
 	function($, executeMe, Handlebars, alterPlaylist) {
 
     function fetchData() {
-      //COMMENTED SECTION USES NOT-REST METHOD OF A WEBSOCKET
+      //COMMENTED SECTION USES NOT-REST METHOD OF A SOCKET
       // var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
       // mySongs.on("value", function(snapshot) {
       //   var song = snapshot.val();
@@ -10,13 +10,14 @@ define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"],
         url: "https://mistory.firebaseio.com/user/playlist1.json"
         }).done(function(song) {
 
-        console.log("playlist", song);
+        console.log("playlist", song.songs);
 
       playlist = Object.keys(song.songs).map( function( key ){
           var y = song.songs[ key ];
           y.key = key;
         return y;
        });
+      console.log("playlist", playlist);
 
       // This looks at the NAME in each item of the playlit and sorts alphabetically
         playlist.sort(function(a, b) {

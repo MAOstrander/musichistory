@@ -1,5 +1,5 @@
-define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist"],
-	function($, _, bootstrap, executeMe, updateMe, alterPlaylist) {
+define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist", "populate-songs"],
+	function($, _, bootstrap, executeMe, updateMe, alterPlaylist, populate) {
 
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
@@ -50,8 +50,15 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
 
 	$(document).on('click', '.delete-song', function(event) {
-		$(this).parent().remove();
-		alterPlaylist.checkArt();
+		var songKey = $(this).attr('songid');
+		console.log("this", songKey);
+		$.ajax({
+		  url: "https://mistory.firebaseio.com/user/playlist1/songs/" + songKey + "/.json",
+		  method: "DELETE"
+		}).done(function() {
+		  console.log("Yay, it deleted!");
+		  populate.fetchData();
+		});
 	});
 
 

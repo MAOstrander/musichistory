@@ -35,6 +35,7 @@ define(["jquery", "lodash", "populate-songs"], function($, _, populate) {
 	      data: JSON.stringify(newSong)
 	    }).done(function(addedSong) {
 	      console.log("Your New Song is", addedSong);
+				populate.fetchData();
 	    });
 
 	    //CLEAR THE VALUES OUT OF ADD SONG FIELDS
@@ -52,7 +53,6 @@ define(["jquery", "lodash", "populate-songs"], function($, _, populate) {
 		$("#maybe-art").show();
 		$("#song-input").hide();
 
-		populate.fetchData();
 	}
 
 	return {
