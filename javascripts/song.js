@@ -47,6 +47,7 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	$("[name='artist']").on('change', alterPlaylist.timeToFilter);
 	$("[name='album']").on('change', alterPlaylist.timeToFilter);
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
+	// $("input[type='submit']").click(alterPlaylist.lodashFilter);
 
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();
@@ -55,4 +56,3 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 
 
 }); //END DEFINE FUNCTION
-

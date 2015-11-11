@@ -1,13 +1,5 @@
-define(["jquery", "lodash", 'hbs!../templates/songs'], 
-	function($, _, Handlebars) {
-
-	function skipSong() {
-		var alter = $("#song-info .song").first();
-		alter.removeClass("playing");
-		$("#song-info").append(alter);
-		playSong();
-		checkArt();
-	}
+define(["jquery", "lodash", 'hbs!../templates/songs', "executeMe"], 
+	function($, _, Handlebars, executeMe) {
 
 	function checkArt() {
 		var thingValue = $("#song-info .display-hide").first().html();
@@ -17,6 +9,14 @@ define(["jquery", "lodash", 'hbs!../templates/songs'],
 			$("#maybe-art").html("<img src='images/yourArtHere.jpg'>");
 
 		}
+	}
+
+	function skipSong() {
+		var alter = $("#song-info .song").first();
+		alter.removeClass("playing");
+		$("#song-info").append(alter);
+		playSong();
+		checkArt();
 	}
 
 	function playSong() {
@@ -77,11 +77,25 @@ define(["jquery", "lodash", 'hbs!../templates/songs'],
 		checkArt();
 	} //END OF timeToFilter FUNCTION
 
+	// COPIED FROM STEVE'S CODE
+	function lodashFilter() {
+		var filteredPlay = playlist.slice(0);
+		var selectedArtist = $("[name='artist']").val();
+
+		var results = _.chain(filteredPlay)
+			.filter((song) => song.artist === selectedArtist)
+			.uniq('album')
+			.pluck('album')
+			.value();
+		console.log("results", results);
+	}
+
 	return {
 		timeToFilter: timeToFilter,
 		skipSong: skipSong,
 		playSong: playSong,
 		stopSong: stopSong,
-		checkArt: checkArt
+		checkArt: checkArt,
+		lodashFilter: lodashFilter
 	};
 }); //END DEFINE FUNCTION
