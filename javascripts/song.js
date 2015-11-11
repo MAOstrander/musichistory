@@ -45,9 +45,9 @@ define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist
 	$("#stop").click(alterPlaylist.stopSong);
 
 	$("[name='artist']").on('change', alterPlaylist.timeToFilter);
+	$("[name='artist']").on('change', alterPlaylist.lodashFilter);
 	$("[name='album']").on('change', alterPlaylist.timeToFilter);
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
-	// $("input[type='submit']").click(alterPlaylist.lodashFilter);
 
 	$(document).on('click', '.delete-song', function(event) {
 		$(this).parent().remove();

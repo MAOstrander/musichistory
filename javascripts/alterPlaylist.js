@@ -71,7 +71,7 @@ define(["jquery", "lodash", 'hbs!../templates/songs', "executeMe"],
     	if (genreSelect.length > 0) {
     		filteredPlay = findGenre();
     	} 
-
+    	console.log("filteredPlay", filteredPlay);
 
 		$("#song-info").html(Handlebars(filteredPlay));
 		checkArt();
@@ -79,15 +79,32 @@ define(["jquery", "lodash", 'hbs!../templates/songs', "executeMe"],
 
 	// COPIED FROM STEVE'S CODE
 	function lodashFilter() {
-		var filteredPlay = playlist.slice(0);
+		var optionList = playlist.slice(0);
 		var selectedArtist = $("[name='artist']").val();
+		console.log("selectedArtist", selectedArtist);
 
-		var results = _.chain(filteredPlay)
+		var results = _.chain(optionList)
 			.filter((song) => song.artist === selectedArtist)
 			.uniq('album')
 			.pluck('album')
 			.value();
 		console.log("results", results);
+
+	    if (selectedArtist !== ""){
+    		$("#album").html("<option class='filter-album'></option>");
+			for (var i = 0; i < results.length; i++) {
+				$("#album").append("<option class='filter-album'>" + results[i] + "</option>");
+			}
+    	} else {
+    		$("#album").html("<option class='filter-album'></option>");
+			for (i = 0; i < playlist.length; i++) {
+				$("#album").append("<option class='filter-album'>" + playlist[i].album + "</option>");
+			}
+    		// executeMe.executeMe(playlist);
+    		// populate.fetchData();
+    	}
+
+		checkArt();
 	}
 
 	return {

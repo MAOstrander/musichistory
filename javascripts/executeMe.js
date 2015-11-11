@@ -22,12 +22,12 @@ define(["jquery", "lodash"], function($, _) {
 		var albumFiltered = filterThis($(".filter-album"));
 		var genreFiltered = filterThis($(".filter-genre"));
 
-		$("#artist").html("");
+		$("#artist").html("<option baller='true' class='filter-artist'></option>");
 		for (i = 0; i < artistFiltered.length; i++) {
 			$("#artist").append("<option class='filter-artist'>" + artistFiltered[i] + "</option>");
 		}
 
-		$("#album").html("");
+		$("#album").html("<option class='filter-album'></option>");
 		for (i = 0; i < albumFiltered.length; i++) {
 			$("#album").append("<option class='filter-album'>" + albumFiltered[i] + "</option>");
 		}
