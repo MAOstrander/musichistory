@@ -1,5 +1,9 @@
-define(["jquery", "lodash", 'hbs!../templates/songs', "executeMe"], 
-	function($, _, Handlebars, executeMe) {
+define(function(require) {
+  //DEPENDENCIES FOR REQUIRE
+  var $ = require("jquery");
+  var _ = require("lodash");
+  var Handlebars = require("hbs!../templates/songs");
+  var executeMe = require("executeMe");
 
 	function checkArt() {
 		var thingValue = $("#song-info .display-hide").first().html();

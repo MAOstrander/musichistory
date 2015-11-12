@@ -18,8 +18,8 @@ requirejs.config({
 	}
 });
 
-require(["song", "hbs", "populate-songs", "get-more-songs"],
-	function(song, Handlebars, populate, more) {
+require(["song", "hbs", "bootstrap", "populate-songs", "get-more-songs"],
+	function(song, Handlebars, bootstrap, populate, more) {
 
 	  var playlist;
 

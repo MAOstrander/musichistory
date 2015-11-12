@@ -1,4 +1,8 @@
-define(["jquery", "lodash", "populate-songs"], function($, _, populate) {
+define(function(require) {
+    //DEPENDENCIES FOR REQUIRE
+    var $ = require("jquery");
+    var _ = require("lodash");
+    var populate = require('populate-songs');
 
 	function filterSong(thing) {
 		thing = thing.replace(">", "-");

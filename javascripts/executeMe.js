@@ -1,5 +1,8 @@
-define(["jquery", "lodash"], function($, _) {
-
+define(function(require) {
+  //DEPENDENCIES FOR REQUIRE
+  var $ = require("jquery");
+  var _ = require("lodash");
+  
 	function filterThis (filterMe) {
 		var yarp = [];
 		for (var l = 0; l < filterMe.length; l++) {

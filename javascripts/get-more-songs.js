@@ -1,5 +1,9 @@
-define(["jquery", "executeMe", 'hbs!../templates/songs'], 
-	function($, executeMe, Handlebars) {
+define(function(require) {
+  //DEPENDENCIES FOR REQUIRE
+  var $ = require("jquery");
+  var Handlebars = require("hbs!../templates/songs");
+  var executeMe = require("executeMe");
+
   return {
     fetchData: function() {
       $.ajax({

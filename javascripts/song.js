@@ -1,5 +1,12 @@
-define(["jquery", "lodash", "bootstrap", "executeMe", "updateMe", "alterPlaylist", "populate-songs"],
-	function($, _, bootstrap, executeMe, updateMe, alterPlaylist, populate) {
+define(function(require) {
+  //DEPENDENCIES FOR REQUIRE
+  var $ = require("jquery");
+  var _ = require("lodash");
+  var Firebase = require("firebase");
+  var updateMe = require("updateMe");
+  var executeMe = require("executeMe");
+  var alterPlaylist = require("alterPlaylist");
+  var populate = require('populate-songs');
 
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
