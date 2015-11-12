@@ -1,14 +1,20 @@
-define(["jquery", "executeMe", 'hbs!../templates/songs', "alterPlaylist"], 
-	function($, executeMe, Handlebars, alterPlaylist) {
+define(function(require) {
+    //DEPENDENCIES FOR REQUIRE
+    var $ = require("jquery");
+    var Firebase = require("firebase");
+    var Handlebars = require('hbs!../templates/songs');
+    var executeMe = require("executeMe");
+    var alterPlaylist = require("alterPlaylist");
 
     function fetchData() {
-      //COMMENTED SECTION USES NOT-REST METHOD OF A SOCKET
-      // var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
-      // mySongs.on("value", function(snapshot) {
-      //   var song = snapshot.val();
-       $.ajax({
-        url: "https://mistory.firebaseio.com/user/playlist1.json"
-        }).done(function(song) {
+      //THIS SECTION USES NOT-REST METHOD OF A SOCKET
+      var mySongs = new Firebase("https://mistory.firebaseio.com/user/playlist1");
+      mySongs.on("value", function(snapshot) {
+        var song = snapshot.val();
+      //THIS SECTION USES REST METHOD WITH AJAX
+       // $.ajax({
+       //  url: "https://mistory.firebaseio.com/user/playlist1.json"
+       //  }).done(function(song) {
 
         console.log("playlist", song.songs);
 
