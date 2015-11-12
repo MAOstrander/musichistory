@@ -14,9 +14,11 @@ requirejs.config({
 		"lodash": "../lib/bower_components/lodash/lodash",
 		"hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
 		"bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
-		"firebase": "../lib/bower_components/firebase/firebase"
+		"firebase": "../lib/bower_components/firebase/firebase",
+		'q': '../bower_components/q/q'
 	}
 });
+
 
 require(["song", "hbs", "bootstrap", "populate-songs", "get-more-songs"],
 	function(song, Handlebars, bootstrap, populate, more) {
