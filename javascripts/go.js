@@ -15,7 +15,7 @@ requirejs.config({
 		"hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
 		"bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
 		"firebase": "../lib/bower_components/firebase/firebase",
-		'q': '../bower_components/q/q'
+		'q': '../lib/bower_components/q/q'
 	}
 });
 
