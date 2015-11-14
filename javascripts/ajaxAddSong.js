@@ -1,7 +1,11 @@
-define(["jquery", "lodash"], function($, _) {
+define(function(require) {
+  var $ = require("jquery");
+  var Q = require("q");
 
-  // $("#button-add").click(function(e) {
-  function addCurrentPlaylist() {
+  function addToPlaylist() {
+    var defferedSong = Q.defer();
+
+    console.log("YOU ARE IN THE AJAXPROMISE MODULE");
 
     var newSong = {
       "name": $("[name='song-add']").val(), 
@@ -18,11 +22,15 @@ define(["jquery", "lodash"], function($, _) {
       data: JSON.stringify(newSong)
     }).done(function(addedSong) {
       console.log("Your New Song is", addedSong);
+      defferedSong.resolve(addedSong); //If call successful resolve promise with the data
+    })
+    .fail(function(xhr, status, error) {
+      defferedSong.reject(error); //Promise Rejection if call failed
     });
+
+    return defferedSong.promise;
   };
 
-  return {
-      addCurrentPlaylist: addCurrentPlaylist,
-  }; //return statement for the file
+  return addToPlaylist; //return statement for the file
 
 });

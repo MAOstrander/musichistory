@@ -52,7 +52,7 @@
 
     <div class="container-fluid">
         <div class="row">  <!-- HERE IS MY ROW STARTER -->
-            <div id="controls" class="col-sm-2">
+            <div id="controls" class="col-sm-2 list-songs">
                 <div>
                     <button id="play" type="button" class="btn btn-default control-button">
                         <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
@@ -106,12 +106,30 @@
               <button id="button-add" class="btn btn-default">Add</button>  
             </div>
             <!-- Body into which the JavaScript inserts songs-->
-            <div id="song-info" class="col-sm-5">
+            <div id="song-info" class="col-sm-5 list-songs">
             </div>
 
             <!-- Maybe put album art here -->
-            <div id="maybe-art" class="col-sm-5">
+            <div id="maybe-art" class="col-sm-5 list-songs">
                 <img src="images/yourArtHere.jpg">
+            </div>
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="modalAdd" type="button" class="btn btn-default" data-dismiss="modal">Add another</button>
+                  </div>
+                </div>
+              </div>
             </div>
         </div> <!-- HERE IS MY ROW ENDER -->
     </div> <!-- container fluid div -->

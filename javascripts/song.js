@@ -7,6 +7,8 @@ define(function(require) {
   var executeMe = require("executeMe");
   var alterPlaylist = require("alterPlaylist");
   var populate = require('populate-songs');
+  var promiseAdd = require('ajaxAddSong');
+  var promiseDelete = require('deleteSongs');
 
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
@@ -19,15 +21,11 @@ define(function(require) {
 	$("body").click( function(event) {
 	  // Handle the click event on my nav li
 	 	if (event.target.id === "list") {
-			songInfo.show();
-			controls.show();
-			songArt.show();
-			songInput.hide();
+			$(".list-songs").show();
+			$("#song-input").hide();
 		} else if (event.target.id === "add") {
-			songInput.show();
-			songInfo.hide();
-			controls.hide();
-			songArt.hide();
+			$(".list-songs").hide();
+			$("#song-input").show();
 		}
 	});
 
@@ -45,7 +43,6 @@ define(function(require) {
 	}
 	fieldInput.keyup(validate);
 
-	buttonAdd.click(updateMe.fullAdd);
 	buttonPlaylist.click(updateMe.quickAdd);
 	$("#skip").click(alterPlaylist.skipSong);
 	$("#play").click(alterPlaylist.playSong);
@@ -56,16 +53,48 @@ define(function(require) {
 	$("[name='album']").on('change', alterPlaylist.timeToFilter);
 	$("input[type='submit']").click(alterPlaylist.timeToFilter);
 
+	$('#modalAdd').click(function(){
+		$(".list-songs").hide();
+		$("#song-input").show();
+	});
+
+	buttonAdd.click(function(){
+		promiseAdd()
+		.then(function(){
+			$(".modal-title").html("Song Added");
+			$(".modal-body").html("You added a song to your playlist!");
+			$('#myModal').modal();
+			//CLEAR THE VALUES OUT OF ADD SONG FIELDS
+			$("input[type='text']").val("");
+			$("#button-add").attr("disabled", "true");
+			
+			//Switch back to music list window
+			$(".list-songs").show();
+			$("#song-input").hide();
+		})
+		.fail(function(error){
+      $(".modal-title").html("Error");
+			$(".modal-body").html("Deletion unsuccesful: " +error + "!");
+			$('#myModal').modal();
+    	});
+	});
+
 	$(document).on('click', '.delete-song', function(event) {
 		var songKey = $(this).attr('songid');
-		console.log("this", songKey);
-		$.ajax({
-		  url: "https://mistory.firebaseio.com/user/playlist1/songs/" + songKey + "/.json",
-		  method: "DELETE"
-		}).done(function() {
-		  console.log("Yay, it deleted!");
-		  populate.fetchData();
-		});
+		promiseDelete(songKey)
+		.then(function(){
+			populate.fetchData();
+			$(".modal-title").html("Deletion");
+			$(".modal-body").html("You deleted a song from your playlist! I hope you meant to...");
+			$('#modalAdd').hide();
+			$('#myModal').modal();
+		})
+		.fail(function(error){
+			$(".modal-title").html("Error");
+			$(".modal-body").html("Deletion unsuccesful: " +error + "!");
+			$('#modalAdd').hide();
+			$('#myModal').modal();
+    });
 	});
 
 
