@@ -63,6 +63,7 @@ define(function(require) {
 		.then(function(){
 			$(".modal-title").html("Song Added");
 			$(".modal-body").html("You added a song to your playlist!");
+			$('#modalAdd').show();
 			$('#myModal').modal();
 			//CLEAR THE VALUES OUT OF ADD SONG FIELDS
 			$("input[type='text']").val("");
