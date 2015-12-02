@@ -3,26 +3,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-  <title>Music History Assignment Version 5</title>
+  <title>Music History Redo Version 5 with Angular</title>
+  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/style3.css">
 </head>
 
 
-<body> 
+<body ng-app="MusicHistory"> 
   
-    <div id="content">
-    <!-- Navigation Header at Top-->
-    <div id="navi">
-      <nav>
-        <ul>
-          <li id="list">List Music</li>
-          <li class="middle" id="add">Add Music</li>
-          <li>Profile</li>
-        </ul>
-      </nav>
-    </div>
+  <section ng-controller="MusicControl">
 
+    <div id="content">
+      <!-- Navigation Header at Top-->
+      <div id="navi">
+        <nav>
+          <ul>
+            <li id="list" ng-click="resetList()">List Music</li>
+            <li class="middle" id="add">Add Music</li>
+            <li ng-click="loadMore()">Load More</li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Body into which the JavaScript inserts songs-->
+      <div id="song-info">
+        <div class="song" ng-repeat="song in songs | filter: filterArtist" >
+          <h2>{{song.title}}</h2>
+            <ul>
+              <li>{{song.artist}}</li>
+              <li class='middle'>{{song.album}}</li>
+              <li>{{song.genre}}</li>
+            </ul>
+          <button class='delete-song' type='button' ng-click="deleteSong(song)">Delete</button>
+        </div>
+      </div>
 
     <!-- Control Bar on Left Side-->
     <div id="controls">
@@ -30,18 +44,22 @@
           <input id="song-length" type="range" name="song-length">
         </label>
 
-        <label for="artist">Artist:
-          <select id="artist" name="artist">
-            <option class='filter-artist'></option>
+        <label>
+          Artist:
+          <select
+              ng-model="filterArtist"
+              ng-options="song.artist for song in songs">
           </select>
         </label>
 
-        <label for="album">Album:
-          <select id="album" name="album">
-            <option class='filter-album'></option>
+        <label>
+          Album:
+          <select
+              ng-model="filterAlbum"
+              ng-options="song.album for song in songs"
+              class='filter-album'>
           </select>
         </label>
-
 
         <p>Genre:</p>
         <div id="col-1">
@@ -55,37 +73,29 @@
           <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
         </div>
         <input type="submit" value="Filter"></input>
-    </div>
-    
+      </div>
 
-    <!-- Song Input for Add Music -->
-    <div id="song-input" class="display-hide">
-      <label>
-        <input type="text" name="song-add"> Name of Song
-      </label>
-      <label>
-        <input type="text" name="artist-add"> Artist
-      </label>
-      <label>
-        <input type="text" name="album-add"> Album
-      </label>
-      <label>
-        <input type="text" name="genre-add"> Genre
-      </label>
-      <button id="button-add">Add</button>  
-    </div>
-
-    <!-- Body into which the JavaScript inserts songs-->
-    <div id="song-info">
+      <!-- Song Input for Add Music -->
+      <div id="song-input" class="display-hide">
+        <label>
+          <input type="text" name="song-add"> Name of Song
+        </label>
+        <label>
+          <input type="text" name="artist-add"> Artist
+        </label>
+        <label>
+          <input type="text" name="album-add"> Album
+        </label>
+        <label>
+          <input type="text" name="genre-add"> Genre
+        </label>
+        <button id="button-add">Add</button>  
+      </div>
     </div>
 
-  </div>
+  </section>
 
-  <!-- <footer class="cleared">
-    This page created by Mathew Ostrander
-  </footer> -->
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-  <script type="text/javascript" src="javascripts/song.js"></script>
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="javascripts/script.js"></script>
 </body>
 </html>
