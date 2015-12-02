@@ -5,6 +5,7 @@ app.controller("MusicControl", ["$q", "$http", "$scope", function($q, $http, $sc
 	$scope.songs = [];
 	$scope.filterArtist = "";
 	$scope.filterAlbum = "";
+	$scope.inputToggle = false;
 
 	var getSongs = $q(function(resolve,reject) {
 		$http.get('data/songs.json')
@@ -51,7 +52,12 @@ app.controller("MusicControl", ["$q", "$http", "$scope", function($q, $http, $sc
 	$scope.resetList = function() {
 		$scope.filterArtist = "";
 		$scope.filterAlbum = "";
+		$scope.inputToggle = false;
 	}; // END resetList Function
+
+	$scope.addSong = function() {
+		$scope.inputToggle = true;
+	};
 
 	$scope.deleteSong = function(song) {
 		var songIndex = $scope.songs.indexOf(song); 

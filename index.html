@@ -19,12 +19,14 @@
         <nav>
           <ul>
             <li id="list" ng-click="resetList()">List Music</li>
-            <li class="middle" id="add">Add Music</li>
+            <li class="middle" id="add" ng-click="addSong()">Add Music</li>
             <li ng-click="loadMore()">Load More</li>
           </ul>
         </nav>
       </div>
 
+      <div ng-if="inputToggle === false">
+        
       <!-- Body into which the JavaScript inserts songs-->
       <div id="song-info">
         <div class="song" ng-repeat="song in songs | filter: filterArtist" >
@@ -75,8 +77,11 @@
         <input type="submit" value="Filter"></input>
       </div>
 
+      </div> <!-- end ng-if -->
+
+
       <!-- Song Input for Add Music -->
-      <div id="song-input" class="display-hide">
+      <div id="song-input" ng-if="inputToggle">
         <label>
           <input type="text" name="song-add"> Name of Song
         </label>
