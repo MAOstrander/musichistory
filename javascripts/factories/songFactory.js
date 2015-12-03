@@ -55,6 +55,16 @@ function($q, $http) {
       console.log("Added single song to factory", song);
       song_list.push(song);
       return song_list;
+    },
+    addSongs: function(songArray) {
+      console.log("Added an array of songs to factory", songArray);
+      
+      songArray.forEach(function(singleSong){
+        song_list.push(singleSong);
+      })
+
+      console.log("song_list in the songFactory", song_list);
+      return song_list;
     }
   }
 }]);

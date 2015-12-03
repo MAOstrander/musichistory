@@ -29,7 +29,8 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "simple-songs",
 
 		moreSongs.then(function(loadedSongs) {
 			console.log("loadedSongs", loadedSongs);
-			$scope.songs = $scope.songs.concat(loadedSongs.songs);
+			songFactory.addSongs(loadedSongs.songs);
+			$scope.songs = songFactory.getSongs();
 			console.log("scope.songs", $scope.songs);
 		}, function(error) {
 				console.log("error");

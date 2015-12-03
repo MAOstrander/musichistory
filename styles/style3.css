@@ -126,7 +126,7 @@ label, select {
   margin-bottom: 2px;
   width: 100%;
 }
-input[type="submit"] {
+#controls>button {
   width: 100%;
   margin-top: 10px;
 }
