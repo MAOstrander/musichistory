@@ -1,0 +1,50 @@
+<!-- Body into which the JavaScript inserts songs-->
+<div id="song-info">
+  <div class="song" ng-repeat="song in songs | filter: filterArtist" >
+    <h2>{{song.title}}</h2>
+      <ul>
+        <li>{{song.artist}}</li>
+        <li class='middle'>{{song.album}}</li>
+        <li>{{song.genre}}</li>
+      </ul>
+    <button class='delete-song' type='button' ng-click="deleteSong(song)">Delete</button>
+  </div>
+</div>
+
+<!-- Control Bar on Left Side-->
+<div id="controls">
+  <label>Song Length:
+    <input id="song-length" type="range" name="song-length">
+  </label>
+
+  <label>
+    Artist:
+    <select
+        ng-model="filterArtist"
+        ng-options="song.artist for song in songs">
+    </select>
+  </label>
+
+  <label>
+    Album:
+    <select
+        ng-model="filterAlbum"
+        ng-options="song.album for song in songs"
+        class='filter-album'>
+    </select>
+  </label>
+
+  <p>Genre:</p>
+  <div id="col-1">
+    <label><input type="checkbox" name="genre" value="rock">Rock</label>
+    <label><input type="checkbox" name="genre" value="pop">Pop</label>
+    <label><input type="checkbox" name="genre" value="blues">Blues</label>
+  </div>
+  <div id="col-2">
+    <label><input type="checkbox" name="genre" value="classical">Classical</label>
+    <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
+    <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
+  </div>
+  <button class="btn btn-default" ng-click="resetList()">Reset Filter</button>
+  <button class="btn btn-default" ng-click="loadMore()">Load More Songs!</button>
+</div>

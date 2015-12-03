@@ -10,98 +10,33 @@
 
 
 <body ng-app="MusicHistory"> 
-  
-  <section ng-controller="MusicControl">
 
     <div id="content">
       <!-- Navigation Header at Top-->
       <div id="navi">
         <nav>
           <ul>
-            <li id="list" ng-click="resetList()">List Music</li>
-            <li class="middle" id="add" ng-click="addSong()">Add Music</li>
-            <li ng-click="loadMore()">Load More</li>
+            <li id="list"><a href="/#/list">List Music</a></li>
+            <li class="middle" id="add"><a href="/#/add">Add Music</a></li>
+            <li>Profile</li>
           </ul>
         </nav>
       </div>
-
-      <div ng-if="inputToggle === false">
-        
-      <!-- Body into which the JavaScript inserts songs-->
-      <div id="song-info">
-        <div class="song" ng-repeat="song in songs | filter: filterArtist" >
-          <h2>{{song.title}}</h2>
-            <ul>
-              <li>{{song.artist}}</li>
-              <li class='middle'>{{song.album}}</li>
-              <li>{{song.genre}}</li>
-            </ul>
-          <button class='delete-song' type='button' ng-click="deleteSong(song)">Delete</button>
-        </div>
-      </div>
-
-    <!-- Control Bar on Left Side-->
-    <div id="controls">
-        <label>Song Length:
-          <input id="song-length" type="range" name="song-length">
-        </label>
-
-        <label>
-          Artist:
-          <select
-              ng-model="filterArtist"
-              ng-options="song.artist for song in songs">
-          </select>
-        </label>
-
-        <label>
-          Album:
-          <select
-              ng-model="filterAlbum"
-              ng-options="song.album for song in songs"
-              class='filter-album'>
-          </select>
-        </label>
-
-        <p>Genre:</p>
-        <div id="col-1">
-          <label><input type="checkbox" name="genre" value="rock">Rock</label>
-          <label><input type="checkbox" name="genre" value="pop">Pop</label>
-          <label><input type="checkbox" name="genre" value="blues">Blues</label>
-        </div>
-        <div id="col-2">
-          <label><input type="checkbox" name="genre" value="classical">Classical</label>
-          <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
-          <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
-        </div>
-        <input type="submit" value="Filter"></input>
-      </div>
-
-      </div> <!-- end ng-if -->
-
-
-      <!-- Song Input for Add Music -->
-      <div id="song-input" ng-if="inputToggle">
-        <label>
-          <input type="text" name="song-add"> Name of Song
-        </label>
-        <label>
-          <input type="text" name="artist-add"> Artist
-        </label>
-        <label>
-          <input type="text" name="album-add"> Album
-        </label>
-        <label>
-          <input type="text" name="genre-add"> Genre
-        </label>
-        <button id="button-add">Add</button>  
-      </div>
+    
+      <div ng-view></div>
+      
     </div>
 
-  </section>
 
   <script src="lib/bower_components/angular/angular.min.js"></script>
   <script src="lib/bower_components/angular-route/angular-route.js"></script>
+
   <script src="javascripts/script.js"></script>
+
+  <script src="javascripts/factories/songFactory.js"></script>
+
+  <script src="javascripts/controllers/MusicControl.js"></script>
+  <script src="javascripts/controllers/songInput.js"></script>
+
 </body>
 </html>
