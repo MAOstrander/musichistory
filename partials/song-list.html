@@ -31,7 +31,9 @@
 
     <h5>Genre:</h5>
     <div id="genre">
-      Genre filter will go here
+      <ul>
+        <li ng-repeat="song in songs | unique: 'genre'">{{song.genre}}</li>
+      </ul>
     </div>
 
     <button class="btn btn-default" ng-click="resetList()">Reset Filter</button>
