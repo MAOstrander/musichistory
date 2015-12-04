@@ -1,5 +1,5 @@
-app.controller("NewSongInput", ["$q", "$http", "$scope", "$firebaseArray",
-	function($q, $http, $scope, $firebaseArray) {
+app.controller("NewSongInput", ["$q", "$http", "$scope", "$firebaseArray", "$location",
+	function($q, $http, $scope, $firebaseArray, $location) {
 
 	$scope.newSong = {};
 
@@ -10,6 +10,8 @@ app.controller("NewSongInput", ["$q", "$http", "$scope", "$firebaseArray",
 
 	$scope.clickAddSong = function() {
 		$scope.songs.$add($scope.newSong);
+		$scope.newSong = {};
+		$location.path("/songs/list");
 	}
 
 }]);
