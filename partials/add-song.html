@@ -1,7 +1,7 @@
-<section>
-    <div id="song-input">
+<section class="row">
+    <div id="song-input" class="col-sm-8 col-sm-offset-2">
       <label>
-        <input type="text" ng-model="newSong.title"> Name of Song
+        <input type="text" ng-model="newSong.name"> Name of Song
       </label>
       <label>
         <input type="text" ng-model="newSong.artist"> Artist
@@ -12,7 +12,9 @@
       <label>
         <input type="text" ng-model="newSong.genre"> Genre
       </label>
-      <button ng-click="clickAddSong()">Add Song</button>  
+      <label>
+        <input type="text" ng-model="newSong.info"> Album Art
+      </label>
+      <button class="btn btn-default" ng-click="clickAddSong()">Add Song</button>  
     </div>
 </section>
-
