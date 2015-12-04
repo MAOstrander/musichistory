@@ -1,15 +1,19 @@
-var app = angular.module("MusicHistory", ["ngRoute"]);
+var app = angular.module("MusicHistory", ["firebase", "ngRoute"]);
 
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/list', {
+      when('/songs/list', {
         templateUrl: 'partials/song-list.html',
         controller: 'MusicControl'
       })
-      .when('/add', {
+      .when('/songs/add', {
         templateUrl: 'partials/add-song.html',
         controller: 'NewSongInput'
       })
-      .otherwise('/list');
+      .when('/songs/details/:songId', {
+        templateUrl: 'partials/seong-detail.html',
+        controller: 'SongDetailControl'
+      })
+      .otherwise('/songs/list');
 }]);

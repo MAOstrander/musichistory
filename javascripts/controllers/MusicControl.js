@@ -1,18 +1,27 @@
-app.controller("MusicControl", ["$q", "$http", "$scope", "simple-songs",
-	function($q, $http, $scope, songFactory) {
+app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simple-songs",
+	function($q, $http, $scope, $firebaseArray, songFactory) {
 
 	$scope.songs = [];
 	$scope.filterArtist = "";
 	$scope.filterAlbum = "";
 
-	songFactory.loadSongs().then(
-	  function () {
-	    $scope.songs = songFactory.getSongs();
-	  },
-	  function (error) {
-	    console.log(error);
-	  }
-	);
+	// songFactory.loadSongs().then(
+	//   function () {
+	//     $scope.songs = songFactory.getSongs();
+	//   },
+	//   function (error) {
+	//     console.log(error);
+	//   }
+	// );
+
+	//$scopre.songId = $routParams.songId;
+
+	var ref = new Firebase("https://mistory.firebaseio.com/user/playlist1/songs");
+	console.log("ref", ref);
+
+	// Instead of snapshot.val(), use this syntax to get songs
+  $scope.songs = $firebaseArray(ref);
+  console.log("$scope.songs", $scope.songs);
 
 	$scope.loadMore = function() {
 		var moreSongs = $q(function(resolve,reject) {
