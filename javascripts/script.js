@@ -12,7 +12,7 @@ app.config(['$routeProvider',
         controller: 'NewSongInput'
       })
       .when('/songs/details/:songId', {
-        templateUrl: 'partials/seong-detail.html',
+        templateUrl: 'partials/song-detail.html',
         controller: 'SongDetailControl'
       })
       .otherwise('/songs/list');
