@@ -5,16 +5,8 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 	$scope.filterArtist = "";
 	$scope.filterAlbum = "";
 
-	// songFactory.loadSongs().then(
-	//   function () {
-	//     $scope.songs = songFactory.getSongs();
-	//   },
-	//   function (error) {
-	//     console.log(error);
-	//   }
-	// );
 
-	//$scopre.songId = $routParams.songId;
+	//$scope.songId = $routParams.songId;
 
 	var ref = new Firebase("https://mistory.firebaseio.com/user/playlist1/songs");
 	console.log("ref", ref);

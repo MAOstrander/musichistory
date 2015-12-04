@@ -48,7 +48,7 @@
           <li class='middle'>{{song.album}}</li>
           <li>{{song.genre}}</li>
         </ul>
-      <button class='delete-song btn btn-default' type='button' ng-click="deleteSong(song)">Delete</button>
+      <button class='delete-song btn btn-default' type='button' ng-click="songs.$remove(song)">Delete</button>
     </div>
   </div>
 
