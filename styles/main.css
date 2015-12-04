@@ -56,9 +56,6 @@ li {
   border-left: 2px solid #ddd;
   border-right: 2px solid #ddd; }
 
-div#song-info {
-  padding: 10px; }
-
 #song-info div:nth-of-type(2n+1) {
   background: linear-gradient(to left, #44e, #444);
   display: inline-block;
@@ -91,7 +88,7 @@ label, select {
   margin-bottom: 2px;
   width: 100%; }
 
-input[type="submit"] {
+#controls > button {
   width: 100%;
   margin-top: 10px; }
 
@@ -107,7 +104,6 @@ input[type="submit"] {
   width: 30%; }
 
 .dropdown-menu {
-  font-size: 1.5em;
   background-color: #333;
   color: #ddd;
   padding: 7px; }

@@ -101,8 +101,8 @@ define(function(require) {
 			}
     	} else {
     		$("#album").html("<option class='filter-album'></option>");
-			for (i = 0; i < playlist.length; i++) {
-				$("#album").append("<option class='filter-album'>" + playlist[i].album + "</option>");
+			for (var j = 0; j < playlist.length; j++) {
+				$("#album").append("<option class='filter-album'>" + playlist[j].album + "</option>");
 			}
     		// executeMe.executeMe(playlist);
     		// populate.fetchData();

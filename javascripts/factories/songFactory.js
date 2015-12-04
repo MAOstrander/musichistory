@@ -61,10 +61,10 @@ function($q, $http) {
       
       songArray.forEach(function(singleSong){
         song_list.push(singleSong);
-      })
+      });
 
       console.log("song_list in the songFactory", song_list);
       return song_list;
     }
-  }
+  };
 }]);

@@ -13,7 +13,7 @@ define(function(require) {
       "album": $("[name='album-add']").val(),
       "genre": $("[name='genre-add']").val(),
       "art": $("[name='image-add']").val()
-    }
+    };
 
 
     $.ajax({
@@ -29,7 +29,7 @@ define(function(require) {
     });
 
     return defferedSong.promise;
-  };
+  }
 
   return addToPlaylist; //return statement for the file
 

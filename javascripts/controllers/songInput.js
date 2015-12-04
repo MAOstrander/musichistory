@@ -12,6 +12,6 @@ app.controller("NewSongInput", ["$q", "$http", "$scope", "$firebaseArray", "$loc
 		$scope.songs.$add($scope.newSong);
 		$scope.newSong = {};
 		$location.path("/songs/list");
-	}
+	};
 
 }]);

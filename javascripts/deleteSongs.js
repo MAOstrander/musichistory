@@ -22,7 +22,7 @@ define(function(require) {
     });
 
     return defferedDelete.promise;
-  };
+  }
 
   return deleteSong; //return statement for the file
 

@@ -31,7 +31,7 @@ define(function(require) {
 	      "album": filterSong($("[name='album-add']").val()),
 	      "genre": filterSong($("[name='genre-add']").val()),
 	      "art": $("[name='image-add']").val()
-	    }
+	    };
 
 	   $.ajax({
 	      url: "https://mistory.firebaseio.com/user/playlist1/songs.json",
