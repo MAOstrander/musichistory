@@ -4,7 +4,7 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 	$scope.songs = [];
 	$scope.filterArtist = "";
 	$scope.filterAlbum = "";
-
+	$scope.albumArt = "images/yourArtHere.jpg";
 
 	//$scope.songId = $routParams.songId;
 
@@ -44,14 +44,13 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 		$scope.filterAlbum = "";
 	}; // END resetList Function
 
-	$scope.deleteSong = function(song) {
-		var songIndex = $scope.songs.indexOf(song); 
-  	console.log("song", song);
-
-		if (songIndex >= 0) {
-		    $scope.songs.splice(songIndex, 1);
-		  }
-
-	}; // END deleteSong Function
+	$scope.displayArt = function(song) {
+		console.log("Album Art URL", song.art);
+		if (song.art) {
+			$scope.albumArt = song.art;
+		} else {
+			$scope.albumArt = "images/yourArtHere.jpg";
+		}
+	}; // END displayArt Function
 
 }]);

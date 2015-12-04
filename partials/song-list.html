@@ -17,16 +17,15 @@
       Artist:
       <select
           ng-model="filterArtist"
-          ng-options="song.artist for song in songs">
+          ng-options="song.artist for song in songs | unique: 'artist'">
       </select>
     </label>
 
     <label>
       Album:
       <select
-          ng-model="filterAlbum"
-          ng-options="song.album for song in songs"
-          class='filter-album'>
+          ng-model="filterAlbum">
+          <option ng-repeat="song in songs | filter: filterArtist.artist | unique: 'album'">{{song.album}}</option>
       </select>
     </label>
 
@@ -41,21 +40,21 @@
 
   <!-- Body into which the JavaScript inserts songs-->
   <div id="song-info" class="col-sm-5 list-songs">
-    <div class="song" ng-repeat="song in songs | filter: filterArtist" >
+    <div class="song" ng-repeat="song in songs | filter: filterArtist.artist | filter: filterAlbum" >
       <h2>{{song.name}}</h2>
         <ul>
           <li>{{song.artist}}</li>
           <li class='middle'>{{song.album}}</li>
           <li>{{song.genre}}</li>
         </ul>
+      <button class="btn btn-default" ng-click="displayArt(song)">Art</button>
       <button class='delete-song btn btn-default' type='button' ng-click="songs.$remove(song)">Delete</button>
-      <p class="display-hide">{{song.info}}</p>
     </div>
   </div>
 
   <!-- Maybe put album art or song info here -->
   <div id="maybe-art" class="col-sm-5 list-songs">
-    <img src="images/yourArtHere.jpg">
+    <img ng-src="{{albumArt}}">
   </div>
 
 </div>
