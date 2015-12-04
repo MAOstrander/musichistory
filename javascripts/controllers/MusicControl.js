@@ -5,6 +5,7 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 	$scope.filterArtist = "";
 	$scope.filterAlbum = "";
 	$scope.albumArt = "images/yourArtHere.jpg";
+	$scope.genresShown = [];
 
 	//$scope.songId = $routParams.songId;
 
@@ -38,6 +39,7 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 			}
 		);
 	}; // END loadMore Function
+
 
 	$scope.resetList = function() {
 		$scope.filterArtist = "";

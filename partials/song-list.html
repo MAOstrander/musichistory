@@ -31,9 +31,9 @@
 
     <h5>Genre:</h5>
     <div id="genre">
-      <ul>
-        <li ng-repeat="song in songs | unique: 'genre'">{{song.genre}}</li>
-      </ul>
+      <label ng-repeat="song in songs | unique: 'genre'">
+        <input type='checkbox' class='filter-genre'>{{song.genre}}
+      </label>
     </div>
 
     <button class="btn btn-default" ng-click="resetList()">Reset Filter</button>
