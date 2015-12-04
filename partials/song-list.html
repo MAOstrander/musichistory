@@ -1,9 +1,17 @@
 <div class="row">
   <!-- Control Bar on Left Side-->
   <div id="controls" class="col-sm-2 list-songs">
-    <label>Song Length:
-      <input id="song-length" type="range" name="song-length">
-    </label>
+    <div>
+      <button id="play" type="button" class="btn btn-default control-button">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+      </button>
+      <button id="stop" type="button" class="btn btn-default control-button">
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+      </button>
+      <button id="skip" type="button" class="btn btn-default control-button">
+          <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+      </button>
+    </div>
 
     <label>
       Artist:
@@ -22,17 +30,11 @@
       </select>
     </label>
 
-    <p>Genre:</p>
-    <div id="col-1">
-      <label><input type="checkbox" name="genre" value="rock">Rock</label>
-      <label><input type="checkbox" name="genre" value="pop">Pop</label>
-      <label><input type="checkbox" name="genre" value="blues">Blues</label>
+    <h5>Genre:</h5>
+    <div id="genre">
+      Genre filter will go here
     </div>
-    <div id="col-2">
-      <label><input type="checkbox" name="genre" value="classical">Classical</label>
-      <label><input type="checkbox" name="genre" value="jazz">Jazz</label>
-      <label><input type="checkbox" name="genre" value="hop">Hip Hop</label>
-    </div>
+
     <button class="btn btn-default" ng-click="resetList()">Reset Filter</button>
     <button class="btn btn-default" ng-click="loadMore()">Load More</button>
   </div>
