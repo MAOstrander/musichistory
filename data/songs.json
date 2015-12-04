@@ -1,28 +1,40 @@
 {
-  "songs": [
-    {
-      "title": "Do You Want to Fight Me",
+  "songs": {
+    "sephiroth": {
+      "id": 1,
+      "name": "One Winged Angel", 
+      "artist": "Nobuo Uematsu",
+      "album": "Final Fantasy 7",
+      "genre": "classic",
+      "art": "http://i428.photobucket.com/albums/qq9/Mathew_Ostrander/onewinged_zps5pgnlxlg.png"
+      },
+    "fight": {
+      "id": 2,
+      "name": "Do You Want to Fight Me", 
       "artist": "Venus Hum",
       "album": "Venus Hum",
-      "genre": "Club"
-    },
-    {
-      "title": "Clubbed to Death",
-      "artist": "Yarp",
-      "album": "Yark",
-      "genre": "Club"
-    },
-    {
-      "title": "An Open Letter",
+      "genre": "electronica",
+      "art": "http://i428.photobucket.com/albums/qq9/Mathew_Ostrander/VenusHum_zps0hcbudei.jpg"
+      },
+    "clubbed": {
+      "id": 3,
+      "name": "Clubbed to Death", 
+      "artist": "Rob Dougan",
+      "album": "Furious Angels",
+      "genre": "dance"
+      },
+    "letter": {
+      "id": 4,
+      "name": "An Open Letter", 
       "artist": "Stuck Mojo",
-      "album": "Decleration of a Headhunter",
-      "genre": "Rock"    
-    },
-    {
-      "title": "Bohemian Rhapsody",
+      "album": "Declaration of a Headhunter",
+      "genre": "Rock"
+      },
+    "rhapsody": {
+      "name": "Bohemian Rhapsody", 
       "artist": "Queen",
       "album": "Greatest Hits Vol2",
-      "genre": "Classic"      
-    }
-  ]
+      "genre": "Rock"
+      }
+  }
 }

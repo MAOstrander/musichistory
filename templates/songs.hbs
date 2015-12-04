@@ -1,0 +1,12 @@
+{{#each this}}
+<div class='song'>
+	<h2 class='title'>{{name}}</h2>
+	<ul>
+		<li class='artist'>{{artist}}</li>
+		<li class='album'>{{album}}</li>
+		<li class='genre'>{{genre}}</li>
+	</ul>
+	<button class='delete-song btn btn-default' type='button' songid='{{key}}'>Delete</button>
+	<p class='display-hide'>{{art}}</p>
+</div>
+{{/each}}
