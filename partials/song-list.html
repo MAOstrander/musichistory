@@ -32,7 +32,7 @@
     <h5>Genre:</h5>
     <div id="genre">
       <label ng-repeat="song in songs | unique: 'genre'">
-        <input type='checkbox' class='filter-genre'>{{song.genre}}
+        <input type='checkbox' class='filter-genre' ng-model='search[song.genre]'>{{song.genre}}
       </label>
     </div>
 
@@ -42,7 +42,7 @@
 
   <!-- Body into which the JavaScript inserts songs-->
   <div id="song-info" class="col-sm-5 list-songs">
-    <div class="song" ng-repeat="song in songs | filter: filterArtist.artist | filter: filterAlbum" >
+    <div class="song" ng-repeat="song in songs | filter: filterArtist.artist | filter: filterAlbum | filter:searchBy()" >
       <h2>{{song.name}}</h2>
         <ul>
           <li>{{song.artist}}</li>

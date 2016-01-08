@@ -14,7 +14,7 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 
 	// Instead of snapshot.val(), use this syntax to get songs
   $scope.songs = $firebaseArray(ref);
-  console.log("$scope.songs", $scope.songs);
+  console.log("$scope.songs THIS IS AN EXAMPLE", $scope.songs);
 
 	$scope.loadMore = function() {
 		var moreSongs = $q(function(resolve,reject) {
@@ -54,5 +54,16 @@ app.controller("MusicControl", ["$q", "$http", "$scope", "$firebaseArray", "simp
 			$scope.albumArt = "images/yourArtHere.jpg";
 		}
 	}; // END displayArt Function
+
+	$scope.search = {};
+
+  $scope.searchBy = function () {
+    return function (songity) {
+      if ( $scope.search[songity.genre] === true ) {
+        return true;
+      }
+    }
+  };
+
 
 }]);
