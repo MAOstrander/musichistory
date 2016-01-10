@@ -1,5 +1,6 @@
 <section class="row">
     <div id="song-input" class="col-sm-8 col-sm-offset-2">
+      <!-- Input fields, consider changing to form for validation reasons -->
       <label>
         <input type="text" ng-model="newSong.name"> Name of Song
       </label>
@@ -15,6 +16,7 @@
       <label>
         <input type="text" ng-model="newSong.info"> Album Art
       </label>
+      <!-- Button for the song submit -->
       <button class="btn btn-default" ng-click="clickAddSong()">Add Song</button>  
     </div>
 </section>

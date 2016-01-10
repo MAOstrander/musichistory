@@ -3,6 +3,7 @@ define(function(require) {
   var $ = require("jquery");
   var _ = require("lodash");
   
+  //This removes duplicates from array
 	function filterThis (filterMe) {
 		var yarp = [];
 		for (var l = 0; l < filterMe.length; l++) {
@@ -25,6 +26,7 @@ define(function(require) {
 		var albumFiltered = filterThis($(".filter-album"));
 		var genreFiltered = filterThis($(".filter-genre"));
 
+		// re-populate the dropdowns after duplicates removed
 		$("#artist").html("<option baller='true' class='filter-artist'></option>");
 		for (i = 0; i < artistFiltered.length; i++) {
 			$("#artist").append("<option class='filter-artist'>" + artistFiltered[i] + "</option>");

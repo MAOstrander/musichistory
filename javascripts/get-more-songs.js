@@ -5,6 +5,7 @@ define(function(require) {
   var executeMe = require("executeMe");
 
   return {
+    //This was for when we were using two different JSON files for music
     fetchData: function() {
       $.ajax({
       	url: "https://mistory.firebaseio.com/user2/playlist1.json"

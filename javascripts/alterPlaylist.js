@@ -5,6 +5,8 @@ define(function(require) {
   var Handlebars = require("hbs!../templates/songs");
   var executeMe = require("executeMe");
 
+  // Performs a check to see if the first song has a url for album artist
+  // if there's art, then it's displayed
 	function checkArt() {
 		var thingValue = $("#song-info .display-hide").first().html();
 		if (thingValue) {
@@ -15,6 +17,7 @@ define(function(require) {
 		}
 	}
 
+	//Takes the song at the top of the playlist and moves it to the end
 	function skipSong() {
 		var alter = $("#song-info .song").first();
 		alter.removeClass("playing");
@@ -23,10 +26,12 @@ define(function(require) {
 		checkArt();
 	}
 
+	//Adds the 'playing' class to the first song in the playlist
 	function playSong() {
 		var alter = $("#song-info .song").first().addClass("playing");
 	}
 
+	//Adds the 'playing' class to the first song in the playlist
 	function stopSong() {
 		var alter = $("#song-info .song").first().removeClass("playing");
 	}

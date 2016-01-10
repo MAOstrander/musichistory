@@ -4,6 +4,7 @@ define(function(require) {
     var _ = require("lodash");
     var populate = require('populate-songs');
 
+  //Old requirement, we were supposed to remove certain characters from input strings
 	function filterSong(thing) {
 		thing = thing.replace(">", "-");
 		thing = thing.replace(/[&\/\\#,+();!@$~%.*?{}]/g, '');
@@ -14,6 +15,7 @@ define(function(require) {
 		console.log("This will be used to create a new empty playlist and prompt for a song to add");
 	}
 
+	//Grab song input values and add them
 	function fullAdd() {
 		// To write a song to firebase in non-rest method
 		// var newSongs = new Firebase("https://mistory.firebaseio.com/user/playlist1/songs");

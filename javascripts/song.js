@@ -10,6 +10,7 @@ define(function(require) {
   var promiseAdd = require('ajaxAddSong');
   var promiseDelete = require('deleteSongs');
 
+  //Target with jquery
 	var songInfo = $("#song-info");
 	var songInput = $("#song-input");
 	var songArt = $("#maybe-art");
@@ -29,6 +30,7 @@ define(function(require) {
 		}
 	});
 
+  //This makes sure that there is text in the appropriate fields before allowing submittal
 	buttonAdd.attr("disabled", "true");
 	var fieldInput = $(":text");
 	function validate(){
@@ -43,6 +45,7 @@ define(function(require) {
 	}
 	fieldInput.keyup(validate);
 
+	//Event listeners
 	buttonPlaylist.click(updateMe.quickAdd);
 	$("#skip").click(alterPlaylist.skipSong);
 	$("#play").click(alterPlaylist.playSong);
@@ -58,6 +61,7 @@ define(function(require) {
 		$("#song-input").show();
 	});
 
+	//Click listener to change back from song input mode to play mode after adding song
 	buttonAdd.click(function(){
 		promiseAdd()
 		.then(function(){
@@ -80,6 +84,7 @@ define(function(require) {
     	});
 	});
 
+	//Delete songs, even though dynamically added to DOM
 	$(document).on('click', '.delete-song', function(event) {
 		var songKey = $(this).attr('songid');
 		promiseDelete(songKey)
